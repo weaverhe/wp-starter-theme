@@ -1,0 +1,94 @@
+/*********
+*
+* 1. Border Radius (basic)
+* 2. Border Radius Separate
+* 3. Transform Helper
+* 4. Transition Helper
+*
+*/
+
+/// Border Radius Helper
+/// @access public
+/// @credit Heather Weaver
+/// @param {Length} $radius - Border Radius
+/// @example scss - Usage
+///   .foo {
+///     @include bradius(4px);
+///   }
+/// @example css - Result
+///   .foo {
+///     -webkit-border-radius : 4px;
+///     -moz-border-radius : 4px;
+///     border-radius : 4px;
+///   }
+
+
+@mixin bradius($radius) {
+    @include prefix(border-radius, $radius, 'webkit' 'moz');
+}
+
+/// Separated border-radius helpers
+/// @access public
+/// @param {Length} $top-left-radius - Top left radius
+/// @param {Length} $top-right-radius - Top right radius
+/// @param {Length} $bottom-right-radius - Bottom right radius
+/// @param {Length} $bottom-left-radius - Bottom left radius
+/// @example scss - Usage
+///   .foo {
+///     @include border-radius-separate(1px, 2px, 3px, 4px);
+///   }
+/// @example css - Result
+///   .foo {
+///     -webkit-border-top-left-radius: 1px;
+///     -moz-border-top-left-radius: 1px;
+///     border-top-left-radius: 1px;
+///     -webkit-border-top-right-radius: 2px;
+///     -moz-border-top-right-radius: 2px;
+///     border-top-right-radius: 2px;
+///     -webkit-border-bottom-right-radius: 3px;
+///     -moz-border-bottom-right-radius: 3px;
+///     border-bottom-right-radius: 3px;
+///     -webkit-border-bottom-left-radius: 4px;
+///     -moz-border-bottom-left-radius: 4px;
+///     border-bottom-left-radius: 4px;
+///   }
+
+@mixin border-radius-separate($top-left-radius, $top-right-radius, $bottom-right-radius, $bottom-left-radius) {
+    @include prefix(border-top-left-radius, $top-left-radius, 'webkit' 'moz');
+    @include prefix(border-top-right-radius, $top-right-radius, 'webkit' 'moz');
+    @include prefix(border-bottom-right-radius, $bottom-right-radius, 'webkit' 'moz');
+    @include prefix(border-bottom-left-radius, $bottom-left-radius, 'webkit' 'moz');
+}
+
+/// Automatically prefix any transform
+/// @access public
+/// @param {String} $transformation - The transform to apply
+/// @example scss - Usage
+///   .foo {
+///     @include transform(translateX(10px));
+///   }
+/// @example css - Result
+///   .foo {
+///     -webkit-transform: translateX(10px);
+///     -ms-transform: translateX(10px);
+///     transform: translateX(10px);
+///   }
+@mixin transform($transformation){
+  @include prefix(transform, $transformation, 'webkit' 'ms');
+}
+
+/// Transition helper
+/// @param {Time} $time [1s] - Duration
+/// @param {String} $timing-function [ease-in-out] - Timing function or cubic bezier curve
+/// @example scss - Usage
+///   .foo {
+///     @include transition(0.3s, ease-in);
+///   }
+/// @example css - Result
+///   .foo {
+///     -webkit-transition: all 0.3s ease-in;
+///     transition: all 0.3s ease-in;
+///   }
+@mixin transition($time: 1s, $timing-function: ease-in-out) {
+    @include prefix(transition, all $time $timing-function, 'webkit');
+}

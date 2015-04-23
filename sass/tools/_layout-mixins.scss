@@ -1,0 +1,169 @@
+/*********
+*
+* 1. Sizing Helper
+* 2. Position Declaration
+* 3. Cover Everything
+* 4. Center Object (Horizontal)
+* 5. Center Object (Horizontal and Vertical)
+* 6. Center Object (Vertical Known Height)
+* 7. Center Object (Vertical Unknown Height)
+* 8. Box-Sizing Helper
+* 9. Clearfix Extend
+*
+*/
+
+/// Sizing helper
+/// @access public
+/// @param {Length} $width - Width
+/// @param {Length} $height [$width] - Height
+/// @example scss - Usage
+///   .foo {
+///     @include size(350px);
+///   }
+/// @example css - Result
+///   .foo {
+///     width: 350px;
+///     height: 350px;
+///   }
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+/// Shorthandizes position declarations.
+/// @access public
+/// @param {String} $type - Either `relative`, `absolute` or `fixed`
+/// @param {Length} $left [null] - Left offset
+/// @param {Length} $right [null] - Right offset
+/// @param {Length} $top [null] - Top offset
+/// @param {Length} $bottom [null] - Bottom offset
+/// @example scss - Usage
+///   .foo {
+///     @include position(absolute, $top: 10px, $left: 10px);
+///   }
+/// @example css - Result
+///   .foo {
+///     position: absolute;
+///     left: 10px;
+///     top: 10px;
+///   }
+@mixin position($type, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $type;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// Cover Everything
+
+@mixin coverer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/// Horizontally centers block elements
+/// @access public
+/// @example scss - Usage
+///   .foo {
+///     @include center-block;
+///   }
+/// @example css - Result
+///   .foo {
+///     display: block;
+///     margin-left: auto;
+///     margin-right: auto;
+///   }
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Center Object
+
+@mixin center-both {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include prefix(transform, translate(-50%, -50%), 'webkit' 'ms');
+}
+
+/// Vertically centers block elements with known height.
+/// @access public
+/// @param {Length} $height - Element's height
+/// @example scss - Usage
+///   .foo {
+///     @include center-h(42px);
+///   }
+/// @example css - Result
+///   .foo {
+///     position: absolute;
+///     top: 50%;
+///     height: 42px;
+///     margin-top: -21px;
+///   }
+@mixin center-h($height) {
+    position: absolute;
+    top: 50%;
+    height: $height;
+    margin-top: -($height / 2);
+}
+
+/// Vertically centers block elements with unknown height.
+/// @access public
+/// @example scss - Usage
+///   .foo {
+///     @include center-h--unk;
+///   }
+/// @example css - Result
+///   .foo {
+///     position: relative;
+///     top: 50%;
+///     -webkit-transform: translateY(-50%);
+///     -ms-transform: translateY(-50%);
+///     transform: translateY(-50%);
+///   }
+@mixin center-h--unk {
+    position: relative;
+    top: 50%;
+    @include prefix(transform, translateY(-50%), 'webkit' 'ms');
+}
+
+/// Box-sizing helper
+/// @access public
+/// @param {String} $type - Either `border-box`, `padding-box` or `content-box`
+/// @example scss - Usage
+///   .foo {
+///     @include box-sizing(border-box);
+///   }
+/// @example css - Result
+///   .foo {
+///     -moz-box-sizing: border-box;
+///     box-sizing: border-box;
+///   }
+@mixin box-sizing($type) {
+    @include prefix(box-sizing, $type, 'moz');
+}
+
+/// Clearfix extend
+/// @access public
+/// @example scss - Usage
+///   .foo {
+///     @extend %clearfix;
+///   }
+%clearfix {
+    *zoom: 1;
+
+    &:before, &:after {
+        content: ' ';
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
