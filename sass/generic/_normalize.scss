@@ -18,6 +18,11 @@ html {
 
 body {
   margin: 0;
+  font-size: 16px;
+  font-family: $roboto;
+  line-height: 1.5;
+  color: $text-color;
+  font-weight: 300;
 }
 
 /* HTML5 display definitions
