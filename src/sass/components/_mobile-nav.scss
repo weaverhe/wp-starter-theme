@@ -1,0 +1,39 @@
+html,
+body {
+	min-height: 100%;
+	height: 100%;
+}
+
+.menu-slide-left {
+	min-height: 100%;
+	width: 100%;
+	z-index: 5;
+	position: absolute;
+	right: 0px;
+	background-color: white;
+	box-shadow: 0 0 15px -5px;
+}
+
+.mobile-menu {
+	float: right;
+	width: 250px;
+	height: 100%;
+	display: none;
+	background-color: $secondary-cta;
+
+	ul {
+		list-style-type: none;
+		padding-left: 0px;
+		margin: 0px;
+	}
+
+	a {
+		display: block;
+		width: 100%;
+		line-height: 40px;
+		border-bottom: 1px solid white;
+		padding: 0 10px;
+		color: white;
+		text-decoration: none;
+	}
+}

@@ -13,6 +13,8 @@
 
 get_header(); ?>
 
+<div class="row">
+
 	<h1>Header Level One</h1>
 
 	<h2>Header Level Two</h2>
@@ -121,6 +123,8 @@ get_header(); ?>
 	<input type="submit" value="Send">
 
 </form>
+
+</div>
 
 <?php get_footer(); ?>
 

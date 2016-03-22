@@ -100,17 +100,28 @@ add_action( 'widgets_init', 'starter_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function starter_theme_scripts() {
-	wp_enqueue_style( 'starter-theme-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'starter-theme-style', get_template_directory_uri() . '/assets/css/style.css');
 
-	wp_enqueue_script( 'starter-theme-script', get_template_directory_uri() . '/js/main.js');
+	wp_enqueue_script( 'starter-theme-script', get_template_directory_uri() . '/assets/js/scripts.js', array(), false, true);
 
-	wp_enqueue_script( 'starter-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'starter_theme_scripts' );
+
+/**
+ * Load jQuery via CDN
+ */
+
+function register_jquery() {
+    if (!is_admin() && $GLOBALS['pagenow'] != 'wp-login.php') {
+        // comment out the next two lines to load the local copy of jQuery
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', 'https://code.jquery.com/jquery-1.12.2.min.js', false, '1.12.2');
+        wp_enqueue_script('jquery');
+    }
+}
+
+add_action( 'wp_enqueue_scripts', 'register_jquery' );
+
 
 /**
  * Font Awesome
@@ -120,16 +131,6 @@ add_action( 'wp_enqueue_scripts', 'prefix_enqueue_awesome' );
 function prefix_enqueue_awesome() {
 	wp_enqueue_style( 'prefix-font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), '4.3.0' );
 }
-
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
 
 /**
  * Custom functions that act independently of the theme templates.

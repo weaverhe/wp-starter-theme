@@ -31,6 +31,12 @@
 @import 'elements/quote';
 @import 'elements/table';
 
+// Objects - High Level Objects
+
+@import 'objects/layout';
+
 // Components - Recognizable UI Components
 
-@import 'components/code';
+@import 'components/top-nav';
+@import 'components/mobile-nav';
+@import 'components/footer';

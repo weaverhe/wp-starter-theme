@@ -1,0 +1,42 @@
+.row {
+	width: 96%;
+	max-width: 1400px;
+	margin: auto;
+	margin-bottom: 10px;
+
+	&:last-child,
+	&.no-margin {
+		margin-bottom: 0px;
+	}
+
+	&.medium-row {
+		max-width: 1000px;
+	}
+
+	&.small-row {
+		max-width: 800px;
+	}
+
+	&.tiny-row {
+		max-width: 600px;
+	}
+
+	&.grid-row {
+		display: flex;
+	}
+}
+
+.row:after,
+.clearfix:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.padding-standard {
+	padding: 1.618em;
+}
+
+.margin-standard {
+	margin: 1.618em;
+}

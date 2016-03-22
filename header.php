@@ -18,4 +18,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<div id="content" class="site-content">
+
+<?php include ('templates/mobile-navigation.php'); ?>
+
+<div id="content" class="site-content menu-slide-left">
+	<?php include ('templates/top-navigation.php'); ?>
