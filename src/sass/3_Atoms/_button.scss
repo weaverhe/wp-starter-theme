@@ -1,7 +1,8 @@
 // <button>, <input type="submit">
 
 button,
-input[type="submit"] {
+input[type="submit"],
+.button {
 	background-color: $main-cta;
 	appearance: none;
 	-webkit-appearance: none;
@@ -12,6 +13,7 @@ input[type="submit"] {
 	padding: 5px 15px;
 	border-bottom: 2px $main-cta-dark solid;
 	position: relative;
+	text-decoration: none;
 
 	&:hover,
 	&:focus,

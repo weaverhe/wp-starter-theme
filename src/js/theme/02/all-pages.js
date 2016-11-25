@@ -1,3 +1,4 @@
 function pageActions() {
+	stickyNav();
 	mobileNav();
 }

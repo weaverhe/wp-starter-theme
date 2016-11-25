@@ -44,10 +44,6 @@
 	background-color: $white;
 }
 
-.navigation--primary__container--fixed {
-	display: none;
-}
-
 .navigation--primary__logo-container {
 	float: left;
 	width: 108px;
@@ -82,3 +78,23 @@
 	}
 }
 
+// fixed styles
+.navigation--primary__container--fixed {
+	position: fixed;
+	top: -77px;
+	left: 0;
+	right: 0;
+	background-color: rgba(255,255,255,.95);
+	transition: top .3s ease-in-out;
+	z-index: 99;
+}
+
+.navigation--primary-fixed {
+	.navigation--primary__container--initial {
+		display: none;
+	}
+
+	.navigation--primary__container--fixed {
+		top: 0px;
+	}
+}

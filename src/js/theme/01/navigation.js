@@ -1,4 +1,4 @@
-function mobileNav() {
+var mobileNav = function() {
 	$('.navigation--mobile__trigger').on('click', function(e) {
 		e.preventDefault();
         if($('.navigation--mobile__page').css('right') === '0px') {
@@ -21,4 +21,19 @@ function mobileNav() {
             $('.navigation--primary').animate({right:0}, '200');
         }
 	});
-}
+};
+
+var stickyNav = function() {
+    var waypoint = new Waypoint({
+      element: $('.navigation--primary'),
+      handler: function(direction) {
+        console.log('running');
+        if(direction === 'down') {
+            $('.navigation--primary').addClass('navigation--primary-fixed');
+        } else {
+            $('.navigation--primary').removeClass('navigation--primary-fixed');
+        }
+      },
+      offset: -300
+    });
+};
