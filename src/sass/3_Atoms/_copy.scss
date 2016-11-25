@@ -1,1 +1,1 @@
-// <p>, <small>, <sup>, <sub>p {	font-size: 1em;	font-weight: 300;}small {	font-size: .8em;}sup {	}sub {}
+// <p>, <small>, <sup>, <sub>p {	@include font-size($p-font-sizes);	font-weight: 300;}small {	font-size: .8em;}sup {	}sub {}

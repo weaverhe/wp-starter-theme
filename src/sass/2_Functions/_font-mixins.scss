@@ -1,48 +1,16 @@
-/*********
-*
-* 1. Font Face Declaration
-* 2. Font Size PX -> EM
-*
-*/
-
-/// Given the location of a webfont, will generate a font-face declaration with multiple file formats.
-/// @access public
-/// @param {String} $font-name - Font family name
-/// @param {String} $file-name - File name (no extension)
-/// @param {String | Number} $weight [normal] - Font weight
-/// @param {String} $style [normal] - Font style
-/// @example scss - Usage
-///   @include font-face('gotham', '/fonts/gotham');
-@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
-  @font-face {
-    font-family: quote($font-name);
-    src: url($file-name + '.eot');
-    src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
-         url($file-name + '.woff') format('woff'),
-         url($file-name + '.ttf')  format('truetype'),
-         url($file-name + '.svg##{$font-name}')  format('svg');
-    font-weight: $weight;
-    font-style: $style;
+@mixin font-size($fs-map, $fs-breakpoints : $breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size : $fs-font-size;
+    }
+    @else {
+      // if $fs-font-size is a key that exists in $fs-breakpoints, use the value
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint : map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
   }
-}
-
-/// Given a font size in pixels, reproduces that font size in rems.
-/// @access public
-/// @param {Length} $size - Font size
-/// @example scss - Usage
-///   .foo {
-///     @include font-size(16px);
-///   }
-/// @example css - Result
-///   .foo {
-///     font-size: 16px;
-///     font-size: 1rem;
-///   }
-@mixin font-size($size) {
-  @if unitless($size) {
-    $size: $size * 1px;
-  }
-
-  font-size: $size;
-  font-size: ($size / $base-font-size) * 1rem;
 }
