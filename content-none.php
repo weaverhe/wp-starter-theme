@@ -9,7 +9,7 @@
 ?>
 
 <header class="page-header">
-	<div class="row row--overflow-visible">
+	<div class="row">
 		<h1 class="page-header__title"><?php _e( 'Nothing Found', 'starter-theme' ); ?></h1>
 	</div>
 </header>
