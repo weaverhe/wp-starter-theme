@@ -1,8 +1,67 @@
 // mobile navigation styles
 .navigation--mobile__trigger {
-	font-size: 24px;
 	display: block;
-	margin: 17px 0px;
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	height: 80px;
+	width: 80px;
+	text-indent: -9999px;
+
+	span {
+		display: block;
+		position: absolute;
+		top: 32px;
+		left: 18px;
+		right: 18px;
+		height: 6px;
+		background: $main-cta;
+		transition: transform .3s;
+
+		&:before,
+		&:after {
+			position: absolute;
+			display: block;
+			left: 0;
+			width: 100%;
+			height: 6px;
+			background-color: $main-cta;
+			content: '';
+			transition: transform .3s, width .3s, bottom .3s;
+		}
+
+		&:before {
+			top: -13px;
+			transform-origin: top right;
+		}
+
+		&:after {
+			bottom: -13px;
+			transform-origin: bottom right;
+		}
+	}
+
+	&.navigation--mobile__trigger--arrow {
+		span {
+			transform: rotate(180deg);
+
+			&:before,
+			&:after {
+				width: 50%;
+			}
+
+			&:before {
+				top: 0;
+				transform: translateX(26px)translateY(2px)rotate(45deg);
+			}
+
+			&:after {
+				bottom: 0;
+				transform: translateX(26px)translateY(-2px)rotate(-45deg);
+			}
+		}
+	}
 }
 
 .navigation--mobile__container {
