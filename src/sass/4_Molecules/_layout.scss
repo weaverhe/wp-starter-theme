@@ -1,36 +1,139 @@
 .row {
-	width: 96%;
-	max-width: 1400px;
-	margin: auto;
-	margin-bottom: 10px;
+	width: 90%;
+	max-width: 1300px;
+	margin: 0 auto;
+	overflow: hidden;
 
-	&:last-child,
-	&.no-margin {
-		margin-bottom: 0px;
-	}
-
-	&.medium-row {
+	&.row--small {
 		max-width: 1000px;
 	}
 
-	&.small-row {
-		max-width: 800px;
+	&.row--tiny {
+		max-width: 750px;
 	}
 
-	&.tiny-row {
-		max-width: 600px;
+	&.row--overflow-visible {
+		overflow: visible;
 	}
 
-	&.grid-row {
-		display: flex;
+	&.row--mtl {
+		margin-top: 35px;
+
+		@media screen and (min-height: 581px) {
+			margin-top: 75px;
+		}
+
+		@media screen and (min-height: 800px) {
+			margin-top: 100px;
+		}
+	}
+
+	&.row--mtm {
+		margin-top: 25px;
+
+		@media screen and (min-height: 800px) {
+			margin-top: 50px;
+		}
 	}
 }
 
-.row:after,
-.clearfix:after {
-	content: '';
-	display: table;
-	clear: both;
+@media screen and (min-width: 581px) {
+	.grid {
+		display: flex;
+	}
+
+	.grid__item {
+		padding: 0 10px;
+	}
+}
+
+.grid__item {
+	flex: 1;
+
+	&:first-child {
+		padding-left: 0px;
+	}
+
+	&:last-child {
+		padding-right: 0px;
+	}
+}
+
+.grid--thirds,
+.grid--quarters,
+.grid--half,
+.grid--fifths {
+	justify-content: space-between;
+	flex-wrap: wrap;
+}	
+
+.grid--half .grid__item {
+	@media screen and (min-width: 581px) {
+		width: 49.5%;
+		flex: inherit;
+	}
+}
+
+.grid--thirds .grid__item {
+	@media screen and (min-width: 581px) {
+		width: 32.83%;
+		flex: inherit;
+	}
+}
+
+.grid--quarters .grid__item {
+	@media screen and (min-width: 581px) {
+		width: 24.5%;
+		flex: inherit;
+	}
+}
+
+.grid--fifths .grid__item {
+	@media screen and (min-width: 581px) {
+		width: 19.5%;
+		flex: inherit;
+	}
+}
+
+.grid--dynamic-columns {
+	justify-content: space-between;
+
+	.grid__item {
+		flex: inherit;
+	}
+}
+
+.grid--align-top {
+	align-items: flex-start;
+}
+
+.grid--align-center {
+	align-items: center;
+}
+
+.grid--align-bottom {
+	align-items: flex-end;
+}
+
+.grid__item--align-top {
+	align-self: flex-start;
+	align-items: center;
+}
+
+.grid__item--align-center {
+	align-self: center;
+}
+
+.grid__item--align-bottom {
+	align-self: flex-end;
+}
+
+.grid__item--pull-right {
+	order: 2;
+}
+
+.grid__item--pull-left {
+	order: -1;
 }
 
 .padding-standard {
