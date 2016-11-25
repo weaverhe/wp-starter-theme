@@ -1,42 +1,39 @@
 // Global Settings
-@import 'settings/config';
-@import 'settings/global-variables';
-@import 'settings/color-palette';
+@import '1_Settings/config';
+@import '1_Settings/global-variables';
+@import '1_Settings/color-palette';
 
 // Credit for most tools mixins - Andy.scss http://gillesbertaux.com/andy/
 
-@import 'tools/base-mixins';
-@import 'tools/color-mixins';
-@import 'tools/design-mixins';
-@import 'tools/font-mixins';
-@import 'tools/layout-mixins';
-@import 'tools/functions';
-
-// Generic - Most Basic CSS
-
-@import 'generic/normalize';
-@import 'generic/box-sizing';
+@import '2_Functions/base-mixins';
+@import '2_Functions/color-mixins';
+@import '2_Functions/design-mixins';
+@import '2_Functions/font-mixins';
+@import '2_Functions/layout-mixins';
+@import '2_Functions/functions';
+@import '2_Functions/normalize';
+@import '2_Functions/box-sizing';
 
 // Elements - Classless Element Style
 
-@import 'elements/button';
-@import 'elements/code';
-@import 'elements/copy';
-@import 'elements/decorative';
-@import 'elements/form';
-@import 'elements/headers';
-@import 'elements/links';
-@import 'elements/lists';
-@import 'elements/media';
-@import 'elements/quote';
-@import 'elements/table';
+@import '3_Atoms/button';
+@import '3_Atoms/code';
+@import '3_Atoms/copy';
+@import '3_Atoms/decorative';
+@import '3_Atoms/form';
+@import '3_Atoms/headers';
+@import '3_Atoms/links';
+@import '3_Atoms/lists';
+@import '3_Atoms/media';
+@import '3_Atoms/quote';
+@import '3_Atoms/table';
 
 // Objects - High Level Objects
 
-@import 'objects/layout';
+@import '4_Molecules/layout';
 
 // Components - Recognizable UI Components
 
-@import 'components/top-nav';
-@import 'components/mobile-nav';
-@import 'components/footer';
+@import '5_Organisms/top-nav';
+@import '5_Organisms/mobile-nav';
+@import '5_Organisms/footer';
