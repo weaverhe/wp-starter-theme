@@ -1,0 +1,15 @@
+.page-header {
+	margin-bottom: 50px;
+	padding: 50px 0px;
+	background-color: $secondary-cta;
+
+	@media screen and (min-width: 900px) {
+		padding: 100px 0px;
+		margin-bottom: 100px;
+	}
+}
+
+.page-header__title {
+	margin: 0px;
+	color: $white;
+}
