@@ -8,7 +8,7 @@ get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
 <header class="page-header">
-	<div class="row">
+	<div class="row row--overflow-visible">
 		<h1 class="page-header__title"><?php the_title(); ?></h1>
 	</div>
 </header>

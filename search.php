@@ -7,16 +7,15 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<?php if ( have_posts() ) : ?>
+	<header class="page-header">
+		<div class="row">
+			<h1 class="page-header__title"><?php printf( __( 'Search Results for: %s', 'starter-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+		</div>
+	</header>
 
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'starter-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<?php /* Start the Loop */ ?>
+	<div class="page-content">
+		<div class="row">
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
@@ -28,18 +27,16 @@ get_header(); ?>
 				get_template_part( 'content', 'search' );
 				?>
 
+				<?php the_posts_navigation(); ?>
+
 			<?php endwhile; ?>
+		</div>
+	</div>
 
-			<?php the_posts_navigation(); ?>
+<?php else : ?>
 
-		<?php else : ?>
+	<?php get_template_part( 'content', 'none' ); ?>
 
-			<?php get_template_part( 'content', 'none' ); ?>
+<?php endif; ?>
 
-		<?php endif; ?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
