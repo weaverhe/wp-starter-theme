@@ -37,7 +37,15 @@
 	}
 }
 
-@media screen and (min-width: 581px) {
+.page-content {
+	margin-bottom: 50px;
+
+	@media screen and (min-width: 600px) {
+		margin-bottom: 100px;
+	}
+}
+
+@media screen and (min-width: 600px) {
 	.grid {
 		display: flex;
 	}
@@ -68,28 +76,28 @@
 }	
 
 .grid--half .grid__item {
-	@media screen and (min-width: 581px) {
+	@media screen and (min-width: 600px) {
 		width: 49.5%;
 		flex: inherit;
 	}
 }
 
 .grid--thirds .grid__item {
-	@media screen and (min-width: 581px) {
+	@media screen and (min-width: 600px) {
 		width: 32.83%;
 		flex: inherit;
 	}
 }
 
 .grid--quarters .grid__item {
-	@media screen and (min-width: 581px) {
+	@media screen and (min-width: 600px) {
 		width: 24.5%;
 		flex: inherit;
 	}
 }
 
 .grid--fifths .grid__item {
-	@media screen and (min-width: 581px) {
+	@media screen and (min-width: 600px) {
 		width: 19.5%;
 		flex: inherit;
 	}
@@ -142,4 +150,16 @@
 
 .margin-standard {
 	margin: 1.618em;
+}
+
+.align--center {
+	text-align: center;
+}
+
+.align--left {
+	text-align: left;
+}
+
+.align--right {
+	text-align: right;
 }

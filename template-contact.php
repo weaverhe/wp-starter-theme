@@ -36,7 +36,7 @@ get_header(); ?>
 			<textarea class="input__field"></textarea>
 		</span>
 
-		<button type="submit" style="float:right;margin: 0 1em;">Send Message</button>
+		<button type="submit">Send Message</button>
 	</form>
 </div>
 
