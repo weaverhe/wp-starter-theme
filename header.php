@@ -21,5 +21,5 @@
 
 <?php include ('templates/mobile-navigation.php'); ?>
 
-<div id="content" class="site-content menu-slide-left">
+<div id="content" class="site-content navigation--mobile__page">
 	<?php include ('templates/top-navigation.php'); ?>
