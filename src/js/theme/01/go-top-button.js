@@ -13,6 +13,9 @@ var goToTop = function() {
 
 	$('.go-top-button').on('click', function(e) {
 		e.preventDefault();
-		$('html, body').animate({scrollTop: 0}, 500);
+		$('html, body').animate({scrollTop: 0}, 500, 'swing', function() {
+			$('html').scroll();
+			$('.navigation--primary').removeClass('navigation--primary-fixed');
+		});
 	});
 };

@@ -27,7 +27,6 @@ var stickyNav = function() {
     var waypoint = new Waypoint({
       element: $('.navigation--primary'),
       handler: function(direction) {
-        console.log('running');
         if(direction === 'down') {
             $('.navigation--primary').addClass('navigation--primary-fixed');
         } else {
@@ -35,5 +34,15 @@ var stickyNav = function() {
         }
       },
       offset: -300
+    });
+
+    var footerHeight = $('footer').height();
+    $(window).scroll(function() {
+
+        if($(window).scrollTop() + $(window).height() >= $(document).height() - footerHeight + 200) {
+            $('.navigation--primary').removeClass('navigation--primary-fixed');
+        } else {
+            $('.navigation--primary').addClass('navigation--primary-fixed');
+        }
     });
 };
