@@ -12,7 +12,7 @@ var notify = require('gulp-notify');
 var sync = require('browser-sync').create();
 var minify = require('gulp-cssnano');
 var uglify = require('gulp-uglify');
-var prefixer = require('gulp-autoprefixer');
+var prefixer = require('gulp-prefix');
 
 // Default task for debugging
 gulp.task('default', function() {
@@ -36,17 +36,17 @@ gulp.task('compile-sass', function() {
 });
 
 // Task to auto-prefix
-gulp.task('auto-prefix', function() {
+gulp.task('auto-prefix', ['compile-sass'], function() {
 	return gulp.src('./assets/css')
 	.pipe(prefixer({
-		browsers: ['last 3 version'],
+		browsers: ['last 40 version'],
 		cascade: false
 	}))
 	.pipe(gulp.dest('./assets/css'));
 });
 
 // Task to minify CSS
-gulp.task('minify-css', ['compile-sass'], function() {
+gulp.task('minify-css', ['auto-prefix'], function() {
 	return gulp.src(['./assets/css/style.css'])
 		.pipe(minify({}))
 		.pipe(gulp.dest('./assets/css'))
