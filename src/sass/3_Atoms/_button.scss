@@ -19,6 +19,8 @@ input[type="submit"],
 	&:focus,
 	&:active {
 		background-color: $main-cta-dark;
+		color: white;
+		border-bottom: 2px darken($main-cta-dark, 10%) solid;
 	}
 
 	&:active {
