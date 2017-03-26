@@ -106,7 +106,7 @@
 .navigation--primary__logo-container {
 	float: left;
 	width: 108px;
-	margin: 10px 0px;
+	margin: 13px 0px;
 }
 
 .navigation--primary__menu,
@@ -117,6 +117,10 @@
 .navigation--primary__menu {
 	display: none;
 	margin: 23px 0px;
+
+	ul {
+		margin: 0px;
+	}
 
 	a {
 		text-decoration: none;

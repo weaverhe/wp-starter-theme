@@ -38,11 +38,10 @@ var stickyNav = function() {
 
     var footerHeight = $('footer').height();
     $(window).scroll(function() {
-
+        console.log($(window).scrollTop(), $(window).height());
+        // console.log(($(window).scrollTop() + $(window).height()), ($(document).height() - footerHeight + 200));
         if($(window).scrollTop() + $(window).height() >= $(document).height() - footerHeight + 200) {
             $('.navigation--primary').removeClass('navigation--primary-fixed');
-        } else {
-            $('.navigation--primary').addClass('navigation--primary-fixed');
         }
     });
 };

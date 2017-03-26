@@ -98,7 +98,7 @@ gulp.task('img-optim', function() {
 // Task to watch for changes + run function accordingly
 gulp.task('watch', ['compile-sass', 'concat-js', 'lint-js', 'img-optim'], function() {
 	sync.init({
-		proxy: 'st:8888'
+		proxy: 'hw:8888'
 	});
 
 	gulp.watch('./src/sass/**/*.scss', ['compile-sass']);
@@ -110,7 +110,7 @@ gulp.task('watch', ['compile-sass', 'concat-js', 'lint-js', 'img-optim'], functi
 // Task to reload browser on page updates
 gulp.task('browser-sync', function() {
 	sync.init({
-		proxy: 'portfolio:8888'
+		proxy: 'hw:8888'
 	});
 });
 
