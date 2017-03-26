@@ -14,7 +14,17 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php get_template_part( 'content', 'page' ); ?>
+		<article>
+			<header class="page-header">
+				<div class="row">
+					<?php the_title( '<h1 class="page-header__title">', '</h1>' ); ?>
+				</div>
+			</header>
+
+			<div class="page-content row">
+				<?php the_content(); ?>
+			</div>
+		</article><!-- #post-## -->
 
 		<?php
 			// If comments are open or we have at least one comment, load up the comment template

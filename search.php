@@ -24,8 +24,13 @@ get_header(); ?>
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'content', 'search' );
 				?>
+
+				<div class="blog-summary">
+					<?php the_title( sprintf( '<p class="blog-summary__title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></p>' ); ?>
+					<p class="blog-summary__excerpt"><?php the_excerpt(); ?></p>
+					<p class="blog-summary__link"><a href="<?php the_permalink(); ?>" title="View <?php the_title(); ?>">View Page</a></p>
+				</div>
 
 				<?php the_posts_navigation(); ?>
 
