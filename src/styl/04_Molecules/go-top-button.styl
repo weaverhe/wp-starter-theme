@@ -1,0 +1,19 @@
+.go-top-button
+	position fixed
+	right 25px
+	bottom 25px
+	z-index 99
+	font-size 1.25em
+	opacity 0
+	transition opacity .3s ease-in-out
+
+	&.go-top-button--visible
+		opacity 1
+
+	&:hover
+	&:active
+	&:focus
+		top initial
+		
+		i
+			color $white

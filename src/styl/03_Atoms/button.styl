@@ -1,0 +1,35 @@
+// <button>, <input type="submit">
+
+button
+input[type="submit"]
+.button
+	background-color $cta-main--light
+	appearance none
+	-webkit-appearance none
+	border 0px
+	color white
+	font-weight 300
+	font-size 1em
+	padding 5px 15px
+	border-bottom 2px $cta-main solid
+	position: relative
+	text-decoration none
+
+	&:hover
+	&:focus
+	&:active
+		background-color $cta-main
+		color white
+		border-bottom 2px $cta-main--dark solid
+	
+	&:active
+		border-bottom 0px
+		top 2px
+	
+	&:active
+	&:focus
+		outline 0px
+
+button[type="submit"]
+input[type="submit"]
+	margin 0 1em

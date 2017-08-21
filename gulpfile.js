@@ -2,7 +2,6 @@
 
 // Required Components
 var gulp = require('gulp');
-var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
@@ -13,6 +12,8 @@ var sync = require('browser-sync').create();
 var minify = require('gulp-cssnano');
 var uglify = require('gulp-uglify');
 var prefixer = require('gulp-prefix');
+var stylus = require('gulp-stylus');
+var sourcemaps = require('gulp-sourcemaps');
 
 // Default task for debugging
 gulp.task('default', function() {
@@ -20,23 +21,26 @@ gulp.task('default', function() {
 });
 
 // Task for development - compiles sass + js, optimizes images, enables browser reload
-gulp.task('dev', ['compile-sass', 'lint-js', 'concat-js', 'img-optim', 'auto-prefix', 'watch']);
+gulp.task('dev', ['compile-stylus', 'lint-js', 'concat-js', 'img-optim', 'auto-prefix', 'watch']);
 
 // Task to prep files for deployment
 gulp.task('build', ['minify-css', 'uglify-js', 'img-optim']);
 
-// Task to compile sass files
-gulp.task('compile-sass', function() {
-	return gulp.src('./src/sass/**/*.scss')
+// Task to compile stylus files
+gulp.task('compile-stylus', function() {
+	return gulp.src('./src/styl/style.styl')
 		.pipe(plumber(plumberErrorHandler))
-		.pipe(sass())
-		.pipe(gulp.dest('./assets/css'))
-		.pipe(sync.stream());
+		.pipe(sourcemaps.init())
+		.pipe(stylus({
+			
+		}))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('./assets/css'));
 		cb(err);
 });
 
 // Task to auto-prefix
-gulp.task('auto-prefix', ['compile-sass'], function() {
+gulp.task('auto-prefix', ['compile-stylus'], function() {
 	return gulp.src('./assets/css')
 	.pipe(prefixer({
 		browsers: ['last 40 version'],
@@ -96,12 +100,12 @@ gulp.task('img-optim', function() {
 });
 
 // Task to watch for changes + run function accordingly
-gulp.task('watch', ['compile-sass', 'concat-js', 'lint-js', 'img-optim'], function() {
+gulp.task('watch', ['compile-stylus', 'concat-js', 'lint-js', 'img-optim'], function() {
 	sync.init({
-		proxy: 'hw:8888'
+		proxy: 'wpst.dev'
 	});
 
-	gulp.watch('./src/sass/**/*.scss', ['compile-sass']);
+	gulp.watch('./src/stylus/**/*.styl', ['compile-stylus']);
 	gulp.watch(['./src/js/vendor/*.js', './src/js/theme/**/*.js'], ['lint-js', 'concat-js']);
 	gulp.watch('./src/img/**/*.{png,jpg,gif,svg}', ['img-optim']);
 	gulp.watch('./**/*.php').on('change', sync.reload);

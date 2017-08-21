@@ -1,0 +1,37 @@
+html
+	box-sizing border-box
+	
+*
+*:before
+*:after
+	box-sizing inherit
+	margin 0
+	padding 0
+	border 0
+	font inherit
+	vertical-align baseline
+	
+sup
+	vertical-align text-top
+	
+sub
+	vertical-align text-bottom
+	
+body
+	line-height 1
+	font-size 16px
+	font-family $roboto
+	color $color--text
+	
+blockquote
+q
+	quotes none
+	
+	&:before
+	&:after
+		content ''
+		content none
+		
+table
+	border-collapse collapse
+	border-spacing 0
