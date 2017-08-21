@@ -1,9 +1,21 @@
 blockquote
-	font-size 1.618em
-	font-style italic
-	font-weight 100
+	font-size 1.2em
+	padding-left 30px
+	position relative
 
 	&:before
-		content '\f10d'
-		font-family 'FontAwesome'
-		margin-right 10px
+		position absolute
+		content ''
+		left 15px
+		bottom 0px
+		top 0px
+		width 4px
+		background-color $cta-main--light
+
+	@media screen and (min-width 601px)
+		font-size 1.4em
+		padding-left 50px
+
+		&:before
+			width 7px
+

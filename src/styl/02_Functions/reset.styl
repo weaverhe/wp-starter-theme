@@ -1,6 +1,5 @@
 html
 	box-sizing border-box
-	
 *
 *:before
 *:after
@@ -22,6 +21,15 @@ body
 	font-size 16px
 	font-family $roboto
 	color $color--text
+
+	@media screen and (min-width 601px)
+		font-size 18px
+		
+	@media screen and (min-width 901px)
+		font-size 20px
+		
+	@media screen and (min-width 1201px)
+		font-size 21px
 	
 blockquote
 q

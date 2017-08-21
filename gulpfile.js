@@ -105,7 +105,7 @@ gulp.task('watch', ['compile-stylus', 'concat-js', 'lint-js', 'img-optim'], func
 		proxy: 'wpst.dev'
 	});
 
-	gulp.watch('./src/stylus/**/*.styl', ['compile-stylus']);
+	gulp.watch('./src/styl/**/*.styl', ['compile-stylus']);
 	gulp.watch(['./src/js/vendor/*.js', './src/js/theme/**/*.js'], ['lint-js', 'concat-js']);
 	gulp.watch('./src/img/**/*.{png,jpg,gif,svg}', ['img-optim']);
 	gulp.watch('./**/*.php').on('change', sync.reload);
