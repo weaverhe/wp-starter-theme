@@ -23,6 +23,51 @@ get_header(); ?>
 				<p class="lede">Basic markup and typographic styles</p>
 			</header>
 
+
+			<div class="row row--full grid">
+				<div class="grid__item"><p>FULL WIDTH</p></div>	
+			</div>
+			<div class="row row--full grid grid--halves">
+				<div class="grid__item"><p>HALF WIDTH<br>HALF WIDTH<br>HALF WIDTH<br></p></div>
+				<div class="grid__item"><p>HALF WIDTH</p></div>	
+			</div>
+			<div class="row row--full grid grid--thirds">
+				<div class="grid__item"><p>THIRD WIDTH</p></div>
+				<div class="grid__item"><p>THIRD WIDTH</p></div>
+				<div class="grid__item"><p>THIRD WIDTH</p></div>	
+			</div>
+			<div class="row row--full grid grid--quarters">
+				<div class="grid__item"><p>QUARTER WIDTH</p></div>
+				<div class="grid__item"><p>QUARTER WIDTH</p></div>
+				<div class="grid__item"><p>QUARTER WIDTH</p></div>
+				<div class="grid__item"><p>QUARTER WIDTH</p></div>	
+			</div>
+			<div class="row row--full grid grid--fifths">
+				<div class="grid__item"><p>FIFTH WIDTH</p></div>
+				<div class="grid__item"><p>FIFTH WIDTH</p></div>
+				<div class="grid__item"><p>FIFTH WIDTH</p></div>
+				<div class="grid__item"><p>FIFTH WIDTH</p></div>	
+				<div class="grid__item"><p>FIFTH WIDTH</p></div>	
+			</div>
+			<div class="row row--full grid grid--sixths">
+				<div class="grid__item"><p>SIXTH WIDTH</p></div>
+				<div class="grid__item"><p>SIXTH WIDTH</p></div>
+				<div class="grid__item"><p>SIXTH WIDTH</p></div>
+				<div class="grid__item"><p>SIXTH WIDTH</p></div>	
+				<div class="grid__item"><p>SIXTH WIDTH</p></div>	
+				<div class="grid__item"><p>SIXTH WIDTH</p></div>	
+			</div>
+			<div class="row row--full grid grid--eighths">
+				<div class="grid__item"><p>EIGHTH WIDTH</p></div>
+				<div class="grid__item"><p>EIGHTH WIDTH</p></div>
+				<div class="grid__item"><p>EIGHTH WIDTH</p></div>
+				<div class="grid__item"><p>EIGHTH WIDTH</p></div>	
+				<div class="grid__item"><p>EIGHTH WIDTH</p></div>	
+				<div class="grid__item"><p>EIGHTH WIDTH</p></div>	
+				<div class="grid__item"><p>EIGHTH WIDTH</p></div>	
+				<div class="grid__item"><p>EIGHTH WIDTH</p></div>	
+			</div>
+
 			<h2>Sections <a href="#">Linked</a></h2>
 			<p>The main page header of this guide is an <code>h1</code> element. Any header elements may include links, as depicted in the example.</p>
 			<p>The secondary header above is an <code>h2</code> element, which may be used for any form of important page-level header. More than one may be used per page. Consider using an <code>h2</code> unless you need a header level of less importance, or as a sub-header to an existing <code>h2</code> element.</p>

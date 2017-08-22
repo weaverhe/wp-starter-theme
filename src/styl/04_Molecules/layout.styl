@@ -1,40 +1,28 @@
 .row
 	width 90%
 	max-width 1300px
-	margin 0 auto
+	margin 0 auto 1em
 	overflow hidden
 
 	&.row--small
 		max-width 1000px
 
-
 	&.row--tiny
 		max-width 750px
 
+	&.row--big
+		max-width 1500px
+
+	&.row--full,
+	.row
+		max-width 100%
+		width 100%
 
 	&.row--overflow-visible
 		overflow visible
 
-
-	&.row--mtl
-		margin-top 35px
-
-		@media screen and (min-height 581px)
-			margin-top 75px
-	
-
-		@media screen and (min-height 800px)
-			margin-top 100px
-	
-
-
-	&.row--mtm
-		margin-top 25px
-
-		@media screen and (min-height 800px)
-			margin-top 50px
-	
-
+	&.row--no-margin
+		margin-bottom 0px
 
 .page-content
 	margin-bottom 50px
@@ -43,100 +31,67 @@
 		margin-bottom 100px
 
 
-@media screen and (min-width 600px)
-	.grid
-		display flex
-
-
-	.grid__item
-		padding 0 10px
-
-
+/* GRID LEVEL 1 - Basic Floats && Declared Widths */
 .grid__item
-	flex 1
+	float left // global style for basic grid items
+	padding 0 1em
+	width 100%
 
-	&:first-child
-		padding-left 0px
-
-
-	&:last-child
-		padding-right 0px
-
-
-.grid--thirds
-.grid--quarters
-.grid--half
-.grid--fifths
-	justify-content space-between
-	flex-wrap wrap;
-
-.grid--half .grid__item
-	@media screen and (min-width 600px)
-		width 49.5%
-		flex inherit
-
+	p
+		background-color rgba(red,10%)
+	
+// set varying column options
+.grid--halves .grid__item
+	width 50%
 
 .grid--thirds .grid__item
-	@media screen and (min-width 600px)
-		width 32.83%
-		flex inherit
-
+	width 33.3%
 
 .grid--quarters .grid__item
-	@media screen and (min-width 600px)
-		width 24.5%
-		flex inherit
-
-
+	width 25%
+	
 .grid--fifths .grid__item
-	@media screen and (min-width 600px)
-		width 19.5%
-		flex inherit
+	width 20%
+	
+.grid--sixths .grid__item
+	width 16.667%
+	
+.grid--eighths .grid__item
+	width 12.5%	
 
+/* GRID LEVEL 2 - Flexbox Styles */
+@supports(display flex)
+	.grid
+		display flex
+		
+	.grid__item
+		float none
+		flex 1
 
-.grid--dynamic-columns
-	justify-content space-between
+/* GRID LEVEL 3 - CSS Grid (where we want to be) */
+@supports(display grid)
+	.grid
+		display grid
+		grid-gap 1em
 
 	.grid__item
-		flex inherit
+		width auto !important
+		padding 0px
 
+	.grid--halves
+		grid-template-columns repeat(2,1fr)
+		
+	.grid--thirds
+		grid-template-columns repeat(3,1fr)
 
-.grid--align-top
-	align-items flex-start
+	.grid--quarters
+		grid-template-columns repeat(4,1fr)
 
-.grid--align-center
-	align-items center
-
-.grid--align-bottom
-	align-items flex-end
-
-.grid__item--align-top
-	align-self flex-start
-	align-items center
-
-.grid__item--align-center
-	align-self center
-
-.grid__item--align-bottom
-	align-self flex-end
-
-.grid__item--pull-right
-	order 2
-
-.grid__item--pull-left
-	order -1
-
-.padding-standard
-	padding 1.618em
-
-.margin-standard
-	margin 1.618em
-
-.align--center
-	text-align center
-
-.align--left
-	text-align left
-
-.align--right
-	text-align right
+	.grid--fifths
+		grid-template-columns repeat(5,1fr)
+		
+	.grid--sixths
+		grid-template-columns repeat(6,1fr)
+		
+	.grid--eighths
+		grid-template-columns repeat(8,1fr)
