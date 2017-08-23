@@ -14,6 +14,8 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
 <?php wp_head(); ?>
 </head>
 
