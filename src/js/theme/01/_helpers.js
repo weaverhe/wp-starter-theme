@@ -1,4 +1,4 @@
-function addClass(elements, newClass) {
+const addClass = function(elements, newClass) {
 	// if there are no elements, end function
 	if (!elements) return;
 
@@ -16,9 +16,9 @@ function addClass(elements, newClass) {
 	elements.forEach((el) => {
 		el.classList.add(newClass);
 	});
-}
+};
 
-function removeClass(elements, newClass) {
+const removeClass = function(elements, newClass) {
 	// if there are no elements, end function
 	if (!elements) return;
 
@@ -36,4 +36,4 @@ function removeClass(elements, newClass) {
 	elements.forEach((el) => {
 		el.classList.remove(newClass);
 	});
-}
+};

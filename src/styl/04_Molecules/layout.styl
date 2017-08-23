@@ -22,7 +22,7 @@
 		overflow visible
 
 	&.row--no-margin
-		margin-bottom 0px
+		margin-bottom 0
 
 .page-content
 	margin-bottom 50px
@@ -36,9 +36,6 @@
 	float left // global style for basic grid items
 	padding 0 1em
 	width 100%
-
-	p
-		background-color rgba(red,10%)
 	
 // set varying column options
 .grid--halves .grid__item
@@ -57,7 +54,7 @@
 	width 16.667%
 	
 .grid--eighths .grid__item
-	width 12.5%	
+	width 12.5%
 
 /* GRID LEVEL 2 - Flexbox Styles */
 @supports(display flex)
@@ -72,26 +69,26 @@
 @supports(display grid)
 	.grid
 		display grid
-		grid-gap 1em
+		grid-column-gap 1em
 
-	.grid__item
-		width auto !important
-		padding 0px
+	div[class*='grid'] .grid__item
+		width auto
+		padding 0
 
 	.grid--halves
-		grid-template-columns repeat(2,1fr)
+		grid-template-columns repeat(2, 1fr)
 		
 	.grid--thirds
-		grid-template-columns repeat(3,1fr)
+		grid-template-columns repeat(3, 1fr)
 
 	.grid--quarters
-		grid-template-columns repeat(4,1fr)
+		grid-template-columns repeat(4, 1fr)
 
 	.grid--fifths
-		grid-template-columns repeat(5,1fr)
+		grid-template-columns repeat(5, 1fr)
 		
 	.grid--sixths
-		grid-template-columns repeat(6,1fr)
+		grid-template-columns repeat(6, 1fr)
 		
 	.grid--eighths
-		grid-template-columns repeat(8,1fr)
+		grid-template-columns repeat(8, 1fr)

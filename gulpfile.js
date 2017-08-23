@@ -1,125 +1,229 @@
-'use strict';
+// gulp components
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')({
+	lazy: true,
+	rename: {
+		'gulp-wp-cache-bust' : 'wpcachebust'
+	}
+});
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
 
-// Required Components
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var jshint = require('gulp-jshint');
-var stylish = require('jshint-stylish');
-var imagemin = require('gulp-imagemin');
-var plumber = require('gulp-plumber');
-var notify = require('gulp-notify');
-var sync = require('browser-sync').create();
-var minify = require('gulp-cssnano');
-var uglify = require('gulp-uglify');
-var prefixer = require('gulp-prefix');
-var stylus = require('gulp-stylus');
-var sourcemaps = require('gulp-sourcemaps');
+// generic JS components
+const jsstylish = require('jshint-stylish');
+const imageminJpegRecompress = require('imagemin-jpeg-recompress');
+const imageminPngcrush = require('imagemin-pngcrush');
 
-// Default task for debugging
+// default task
 gulp.task('default', function() {
-	console.log('gulp running');
+	console.log('Gulp is up and running');
 });
 
-// Task for development - compiles sass + js, optimizes images, enables browser reload
-gulp.task('dev', ['compile-stylus', 'lint-js', 'concat-js', 'img-optim', 'auto-prefix', 'watch']);
+/******
+*
+* CSS / Stylus Tasks
+*
+******/
 
-// Task to prep files for deployment
-gulp.task('build', ['minify-css', 'uglify-js', 'img-optim']);
+// lint the stylus files
+gulp.task('vet-stylus', function() {
+	return gulp.src('./src/styl/**/*.styl')
+		.pipe($.plumber(plumberErrorHandler))
+		.pipe($.stylint())
+		.pipe($.stylint.reporter())
+		.pipe($.stylint.reporter('fail')); // the gulp-process should fail if there are linting errors
 
-// Task to compile stylus files
-gulp.task('compile-stylus', function() {
+		cb(err);
+});
+
+// compile the stylus files into style.css && set up sourcemaps
+// files must pass linting before they will compile
+gulp.task('compile-stylus', ['vet-stylus'], function() {
 	return gulp.src('./src/styl/style.styl')
-		.pipe(plumber(plumberErrorHandler))
-		.pipe(sourcemaps.init())
-		.pipe(stylus({
-			
-		}))
-		.pipe(sourcemaps.write('.'))
+		.pipe($.plumber(plumberErrorHandler))
+		.pipe($.sourcemaps.init()) // using external sourcemap
+		.pipe($.stylus({}))
+		.pipe($.sourcemaps.write('.')) // write to sourcemap
 		.pipe(gulp.dest('./assets/css'));
+
 		cb(err);
 });
 
-// Task to auto-prefix
-gulp.task('auto-prefix', ['compile-stylus'], function() {
-	return gulp.src('./assets/css')
-	.pipe(prefixer({
-		browsers: ['last 40 version'],
-		cascade: false
-	}))
-	.pipe(gulp.dest('./assets/css'));
-});
-
-// Task to minify CSS
-gulp.task('minify-css', ['auto-prefix'], function() {
-	return gulp.src(['./assets/css/style.css'])
-		.pipe(minify({}))
-		.pipe(gulp.dest('./assets/css'))
-		.pipe(sync.stream());
-});
-
-// Task to lint + concatenate js files
-gulp.task('concat-js', ['lint-js'], function() {
-	return gulp.src(['./src/js/vendor/*.js', './src/js/theme/01/*.js', './src/js/theme/02/*.js', './src/js/theme/03/*.js'])
-		.pipe(plumber(plumberErrorHandler))
-		.pipe(concat('scripts.js'))
-		.pipe(gulp.dest('./assets/js'))
-		.pipe(sync.stream())
-		cb(err);
-});
-
-// Task to lint js file
-gulp.task('lint-js', function() {
-	return gulp.src('./src/js/theme/**/*.js')
-		.pipe(plumber(plumberErrorHandler))
-		.pipe(jshint())
-		.pipe(jshint.reporter(stylish))
-		.pipe(jshint.reporter('fail'))
-		cb(err);
-});
-
-// Task to uglify js file
-gulp.task('uglify-js', ['lint-js', 'concat-js'], function() {
-	return gulp.src('./assets/js/scripts.js')
-		.pipe(plumber(plumberErrorHandler))
-		.pipe(uglify())
-		.pipe(gulp.dest('./assets/js'));
-});
-
-// Task to optimize images
-gulp.task('img-optim', function() {
-	return gulp.src('./src/img/**/*.{png,jpg,gif,svg}')
-		.pipe(plumber(plumberErrorHandler))
-		.pipe(imagemin({
-			optimizationLevel : 2,
-			progressive: true
+// autoprefix the CSS file
+gulp.task('autoprefix-css', ['compile-stylus'],function() {
+	return gulp.src('./assets/css/style.css')
+		.pipe($.plumber(plumberErrorHandler))
+		.pipe($.sourcemaps.init())
+		.pipe($.autoprefixer({
+			browsers: ['last 8 versions']
 		}))
+		.pipe($.sourcemaps.write('.'))
+		.pipe(gulp.dest('./assets/css'));
 
-		.pipe(gulp.dest('./assets/img'))
-		.pipe(sync.stream());
+		cb(err)
+});
+
+// minify the CSS file
+// this will vet + compile from stylus before minifying
+gulp.task('minify-css', ['autoprefix-css'], function() {
+	return gulp.src('./assets/css/style.css')
+		.pipe($.plumber(plumberErrorHandler))
+		.pipe($.cssmin())
+		.pipe(gulp.dest('./assets/css'));
+
 		cb(err);
 });
 
-// Task to watch for changes + run function accordingly
-gulp.task('watch', ['compile-stylus', 'concat-js', 'lint-js', 'img-optim'], function() {
-	sync.init({
+// master CSS task to do all CSS tasks
+gulp.task('master-css', ['minify-css']);
+
+/******
+*
+* Javascript Tasks
+*
+******/
+
+// lint javascript
+gulp.task('lint-javascript', function() {
+	return gulp.src('./src/js/theme/**/*.js')
+		.pipe($.plumber(plumberErrorHandler))
+		.pipe($.jshint())
+		.pipe($.jshint.reporter(jsstylish, {verbose: true}))
+		.pipe($.jshint.reporter('fail')); // the gulp-process should fail if there are linting errors
+
+		cb(err);
+});
+
+// compile javascript && set up sourcemaps
+gulp.task('compile-javascript', ['lint-javascript'], function() {
+	return gulp.src(['./src/js/vendor/**/*.js', './src/js/theme/01/_helpers.js', './src/js/theme/01/**/*.js', './src/js/theme/02/**/*.js', './src/js/theme/03/**/*.js'])
+		.pipe($.plumber(plumberErrorHandler))
+		.pipe($.sourcemaps.init())
+		.pipe($.concat('scripts.js'))
+		.pipe($.sourcemaps.write('.'))
+		.pipe(gulp.dest('./assets/js'));
+
+		cb(err);
+});
+
+// run babel (or similar)
+gulp.task('transpile-javascript', ['compile-javascript'], function() {
+	return gulp.src('./assets/js/scripts.js')
+		.pipe($.plumber(plumberErrorHandler))
+		.pipe($.babel({
+			presets: ['env']
+		}))
+		.pipe(gulp.dest('./assets/js'));
+
+		cb(err);
+});
+
+// minify/uglify javascript
+gulp.task('compress-javascript', ['transpile-javascript'], function() {
+	return gulp.src('./assets/js/scripts.js')
+		.pipe($.plumber(plumberErrorHandler))
+		.pipe($.uglify())
+		.pipe(gulp.dest('./assets/js'));
+
+		cb(err);
+});
+
+// master JS task to do all JS tasks
+gulp.task('master-js', ['compress-javascript']);
+
+/******
+*
+* Performance - Misc.
+*
+******/
+
+// image optimization
+gulp.task('compress-images', function() {
+	return gulp.src('./src/img/*')
+		.pipe($.plumber(plumberErrorHandler))
+		.pipe($.cache(
+			$.imagemin(
+				[
+					$.imagemin.gifsicle(), 
+					imageminJpegRecompress(), 
+					imageminPngcrush(),
+					$.imagemin.svgo()
+				], {
+					verbose: true
+				}
+		)))
+		.pipe(gulp.dest('./assets/img'));
+
+		cb(err);
+});
+
+// cache busting
+gulp.task('bust-cache', ['compress-javascript', 'minify-css'], function() {
+	return gulp.src('functions.php')
+		.pipe($.wpcachebust({
+			themeFolder: './',
+			rootPath: './'
+		}))
+		.pipe(gulp.dest('./'))
+});
+
+/******
+*
+* Browsersync + Watch Tasks
+*
+******/
+
+// need watch tasks to make sure browser is reloaded AFTER the file prep is done
+gulp.task('js-watch', ['compile-javascript'], function(done) {
+	browserSync.reload();
+	done();
+});
+
+gulp.task('stylus-watch', ['autoprefix-css'], function(done) {
+	browserSync.reload();
+	done();
+});
+
+gulp.task('img-watch', ['compress-images'], function(done) {
+	browserSync.reload();
+	done();
+});
+
+// master 'watch' task to monitor all static assets for updates and run the appropriate function(s)
+gulp.task('watch', ['compile-javascript', 'autoprefix-css', 'compress-images'], function() {
+	browserSync.init({
 		proxy: 'localhost:8888'
 	});
 
-	gulp.watch('./src/styl/**/*.styl', ['compile-stylus']);
-	gulp.watch(['./src/js/vendor/*.js', './src/js/theme/**/*.js'], ['lint-js', 'concat-js']);
-	gulp.watch('./src/img/**/*.{png,jpg,gif,svg}', ['img-optim']);
-	gulp.watch('./**/*.php').on('change', sync.reload);
+	gulp.watch('./src/styl/**/*.styl', ['stylus-watch']);
+	gulp.watch('./src/js/**/*.js', ['js-watch']);
+	gulp.watch('./src/img/*', ['img-watch']);
+	gulp.watch('./**/*.php').on('change', browserSync.reload);
 });
 
-// Task to reload browser on page updates
-gulp.task('browser-sync', function() {
-	sync.init({
-		proxy: 'localhost:8888'
-	});
-});
+/******
+*
+* Dev && Build Scripts
+*
+******/
 
-// Error Handling Function
-var plumberErrorHandler = { errorHandler: notify.onError({
+// dev script to monitor files, update as needed, and refresh the browser
+// just an alias of 'watch' for familiarity of naming conventions
+gulp.task('dev', ['watch'])
+
+
+// build script to prep all files for deployment
+gulp.task('build', ['bust-cache', 'compress-images'])
+
+/******
+*
+* Utility Functions
+*
+******/
+
+// error handler for any errors occurring while using gulp-plumber
+const plumberErrorHandler = {
+	errorHandler: $.notify.onError({ // use gulp-notify to send system notifications w/ error messages so that terminal doesn't have to be open to see issues
 		title: 'Gulp',
 		message: 'Error: <%= error.message %>'
 	})

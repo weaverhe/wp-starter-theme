@@ -9,7 +9,7 @@ const formFieldFilled = function(e) {
 	if(e.type === 'focus') {
 		addClass(parent, 'input--filled');
 	}
-
+	
 	// check if any characters have been entered (length > 0)
 	if(e.type === 'blur' && fieldVal.length === 0) {
 		// add input--filled class to parent

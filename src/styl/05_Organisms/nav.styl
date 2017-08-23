@@ -7,6 +7,7 @@
 	height 80px
 	width 80px
 	text-indent -9999px
+	float right
 
 	span
 		display block
@@ -16,7 +17,7 @@
 		right 18px
 		height 6px
 		background $cta-main
-		transition transform .3s
+		transition transform 0.3s
 
 		&:before
 		&:after
@@ -27,7 +28,7 @@
 			height 6px
 			background-color $cta-main
 			content ''
-			transition transform .3s, width .3s, bottom .3s
+			transition transform 0.3s, width 0.3s, bottom 0.3s
 
 		&:before
 			top -13px
@@ -62,8 +63,8 @@
 
 	ul
 		list-style-type none
-		padding-left 0px
-		margin 0px
+		padding-left 0
+		margin 0
 
 	a
 		display block
@@ -77,9 +78,9 @@
 .navigation--mobile__page
 	min-height 100%
 	width 100%
-	z-index 5
+	z-index 10
 	position absolute
-	right 0px
+	right 0
 	background-color white
 	box-shadow 0 0 15px -5px
 
@@ -90,18 +91,15 @@
 .navigation--primary__logo-container
 	float left
 	width 108px
-	margin 13px 0px
-
-.navigation--primary__menu
-.navigation--mobile__trigger
-	float right
+	margin 13px 0
 
 .navigation--primary__menu
 	display none
-	margin 23px 0px
+	margin 23px 0
+	float right
 
 	ul
-		margin 0px
+		margin 0
 
 	a
 		text-decoration none
@@ -122,16 +120,16 @@
 	top -77px
 	left 0
 	right 0
-	background-color rgba(255,255,255,.95)
-	transition top .3s ease-in-out
-	z-index 99
+	background-color rgba(255, 255, 255, 0.95)
+	transition top 0.3s ease-in-out
+	z-index 100
 
 .navigation--primary-fixed
 	.navigation--primary__container--initial
 		display none
 
 	.navigation--primary__container--fixed
-		top 0px
+		top 0
 
 .logged-in .navigation--primary-fixed .navigation--primary__container--fixed
 	top 32px
