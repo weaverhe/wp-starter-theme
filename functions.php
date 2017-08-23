@@ -100,7 +100,7 @@ add_action( 'widgets_init', 'starter_theme_widgets_init' );
 /**
 * Definitions for cache busting scripts/styles
 */
-define('THEME_CSS', get_template_directory_uri() . '/assets/css/style.css?v=4a04bb24d0388ac91db2594d5548f2da');
+define('THEME_CSS', get_template_directory_uri() . '/assets/css/style.css?v=c6b125bb3f667d8a30d4e4e30e41df3b');
 define('THEME_JS', get_template_directory_uri() . '/assets/js/scripts.js?v=27238504f15e46167acfd8473fb1dc65');
 
 /**

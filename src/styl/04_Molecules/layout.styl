@@ -56,6 +56,9 @@
 .grid--eighths .grid__item
 	width 12.5%
 
+.grid--dynamic-columns .grid__item
+	width 25%
+
 /* GRID LEVEL 2 - Flexbox Styles */
 @supports(display flex)
 	.grid
@@ -64,6 +67,9 @@
 	.grid__item
 		float none
 		flex 1
+
+	.grid--dynamic-columns .grid__item
+		width auto
 
 /* GRID LEVEL 3 - CSS Grid (where we want to be) */
 @supports(display grid)
@@ -92,3 +98,8 @@
 		
 	.grid--eighths
 		grid-template-columns repeat(8, 1fr)
+
+	// css grid layout doesn't really support dynamic column numbers
+	// fall back to flex to workaround for now
+	.grid--dynamic-columns
+		display flex
