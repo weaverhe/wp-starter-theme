@@ -69,3 +69,32 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	}
 	add_action( 'wp_head', 'starter_theme_render_title' );
 endif;
+
+/********
+*
+* Rewriting Image Markup for Lazy Loading
+*
+********/
+
+// function starter_theme_lazy_load_images($html, $id, $caption, $title, $align, $url, $size, $alt) {
+// 	$src = wp_get_attachment_image_src( $id, $size, false );
+// 	$srcU = $src[0];
+// 	$width = $src[1];
+// 	$height = $src[2];
+
+// 	$ret = "<img src='' data-src='$srcU' alt='$alt' width='$width' height='$height' class='align$align lazy-load' />";
+// 	$ret .= "<noscript><img src='$srcU' alt='$alt' width='$width' height='$height' class='align$align' /></noscript>";
+
+// 	return $ret;
+// 	// return "html = $html && id = $id && caption = $caption && title = $title && align = $align && url = $url && size = $size && alt = $alt";
+// }
+
+function starter_theme_lazy_load_filter($content) {
+	return preg_replace_callback('/(<\s*img[^>]+)(src\s*=\s*"[^"]+")([^>]+>)/i', 'starter_theme_rewrite_lazy_images', $content);
+}
+
+add_filter('the_content', 'starter_theme_lazy_load_filter');
+
+function starter_theme_rewrite_lazy_images($img) {
+	return 'test';
+}

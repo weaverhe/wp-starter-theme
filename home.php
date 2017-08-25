@@ -71,6 +71,12 @@ get_header(); ?>
 			<h2>Sections <a href="#">Linked</a></h2>
 			<p>The main page header of this guide is an <code>h1</code> element. Any header elements may include links, as depicted in the example.</p>
 			<p>The secondary header above is an <code>h2</code> element, which may be used for any form of important page-level header. More than one may be used per page. Consider using an <code>h2</code> unless you need a header level of less importance, or as a sub-header to an existing <code>h2</code> element.</p>
+
+			<img class="lazy-load" data-src="/wp-content/themes/wp-starter-theme/assets/img/test.jpg" />
+			<noscript>
+				<img src="/wp-content/themes/wp-starter-theme/assets/img/test.jpg" />
+			</noscript>
+			
 			<h3>Third-Level Header <a href="#">Linked</a></h3>
 			<p>The header above is an <code>h3</code> element, which may be used for any form of page-level header which falls below the <code>h2</code> header in a document hierarchy.</p>
 			<h4>Fourth-Level Header <a href="#">Linked</a></h4>
@@ -79,7 +85,7 @@ get_header(); ?>
 			<p>The header above is an <code>h5</code> element, which may be used for any form of page-level header which falls below the <code>h4</code> header in a document hierarchy.</p>
 			<h6>Sixth-Level Header <a href="#">Linked</a></h6>
 			<p>The header above is an <code>h6</code> element, which may be used for any form of page-level header which falls below the <code>h5</code> header in a document hierarchy.</p>
-
+			
 			<h2 id="grouping">Grouping content</h2>
 			<h3>Paragraphs</h3>
 			<p>All paragraphs are wrapped in <code>p</code> tags. Additionally, <code>p</code> elements can be wrapped with a <code>blockquote</code> element <em>if the <code>p</code> element is indeed a quote</em>. Historically, <code>blockquote</code> has been used purely to force indents, but this is now achieved using CSS. Reserve <code>blockquote</code> for quotes.</p>

@@ -1,0 +1,4 @@
+{
+	"plugins" : ['babel-plugin-loop-optimizer'],
+	"presets" : ['es2015']
+}

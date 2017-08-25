@@ -110,9 +110,11 @@ gulp.task('compile-javascript', ['lint-javascript'], function() {
 gulp.task('transpile-javascript', ['compile-javascript'], function() {
 	return gulp.src('./assets/js/scripts.js')
 		.pipe($.plumber(plumberErrorHandler))
+		.pipe($.sourcemaps.init())
 		.pipe($.babel({
-			presets: ['env']
+			presets: ['es2015']
 		}))
+		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('./assets/js'));
 
 		cb(err);
@@ -174,7 +176,7 @@ gulp.task('bust-cache', ['compress-javascript', 'minify-css'], function() {
 ******/
 
 // need watch tasks to make sure browser is reloaded AFTER the file prep is done
-gulp.task('js-watch', ['compile-javascript'], function(done) {
+gulp.task('js-watch', ['transpile-javascript'], function(done) {
 	browserSync.reload();
 	done();
 });
@@ -190,7 +192,7 @@ gulp.task('img-watch', ['compress-images'], function(done) {
 });
 
 // master 'watch' task to monitor all static assets for updates and run the appropriate function(s)
-gulp.task('watch', ['compile-javascript', 'autoprefix-css', 'compress-images'], function() {
+gulp.task('watch', ['transpile-javascript', 'autoprefix-css', 'compress-images'], function() {
 	browserSync.init({
 		proxy: 'localhost:8888'
 	});
