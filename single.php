@@ -9,21 +9,15 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<div class="row">
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<?php the_content(); ?>
-			</article><!-- #post-## -->
-		</div>
+		<?php includeWithVariables(get_template_directory() . '/templates/header/page-header.php', array('title' => get_the_title())); ?>
 
-		<div class="row">
-			<?php
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-			?>
-		</div>
+		<article>
 
-		<?php endwhile; // end of the loop. ?>
+			<div class="page-content row">
+				<?php the_content(); ?>
+			</div>
+		</article><!-- #post-## -->
+		
+	<?php endwhile; // end of the loop. ?>
 
 <?php get_footer(); ?>

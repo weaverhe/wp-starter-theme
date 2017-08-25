@@ -1,0 +1,106 @@
+.row
+	width 90%
+	max-width 1300px
+	margin 0 auto 1em
+	overflow hidden
+
+	&.row--small
+		max-width 1000px
+
+	&.row--tiny
+		max-width 750px
+
+	&.row--big
+		max-width 1500px
+
+	&.row--full,
+	.row
+		max-width 100%
+		width 100%
+
+	&.row--overflow-visible
+		overflow visible
+
+	&.row--no-margin
+		margin-bottom 0
+
+.page-content
+	margin-bottom 50px
+
+	@media screen and (min-width 600px)
+		margin-bottom 100px
+
+
+/* GRID LEVEL 1 - Basic Floats && Declared Widths */
+.grid__item
+	float left // global style for basic grid items
+	padding 0 1em
+	width 100%
+	
+// set varying column options
+.grid--halves .grid__item
+	width 50%
+
+.grid--thirds .grid__item
+	width 33.3%
+
+.grid--quarters .grid__item
+	width 25%
+	
+.grid--fifths .grid__item
+	width 20%
+	
+.grid--sixths .grid__item
+	width 16.667%
+	
+.grid--eighths .grid__item
+	width 12.5%
+
+.grid--dynamic-columns .grid__item
+	width 25%
+
+/* GRID LEVEL 2 - Flexbox Styles */
+@supports(display flex)
+	.grid
+		display flex
+		
+	.grid__item
+		float none
+		flex 1
+
+	.grid--dynamic-columns .grid__item
+		width auto
+
+/* GRID LEVEL 3 - CSS Grid (where we want to be) */
+@supports(display grid)
+	.grid
+		display grid
+		grid-column-gap 1em
+
+	div[class*='grid'] .grid__item
+		width auto
+		padding 0
+
+	.grid--halves
+		grid-template-columns repeat(2, 1fr)
+		
+	.grid--thirds
+		grid-template-columns repeat(3, 1fr)
+
+	.grid--quarters
+		grid-template-columns repeat(4, 1fr)
+
+	.grid--fifths
+		grid-template-columns repeat(5, 1fr)
+		
+	.grid--sixths
+		grid-template-columns repeat(6, 1fr)
+		
+	.grid--eighths
+		grid-template-columns repeat(8, 1fr)
+
+	// css grid layout doesn't really support dynamic column numbers
+	// fall back to flex to workaround for now
+	.grid--dynamic-columns
+		display flex
+		

@@ -7,11 +7,7 @@
 
 get_header(); ?>
 
-<header class="page-header">
-	<div class="row">
-		<h1 class="page-header__title"><?php _e( 'Oops! 404.', 'starter-theme' ); ?></h1>
-	</div>
-</header>
+<?php includeWithVariables(get_template_directory() . '/templates/header/page-header.php', array('title' => 'Oops! 404.')); ?>
 
 <div class="page-content">
 
@@ -35,12 +31,6 @@ get_header(); ?>
 	?>
 		</div>
 	</div>
-
-	
-
-	
-
-	
 
 </div>
 
