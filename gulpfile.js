@@ -112,7 +112,7 @@ gulp.task('transpile-javascript', ['compile-javascript'], function() {
 		.pipe($.plumber(plumberErrorHandler))
 		.pipe($.sourcemaps.init())
 		.pipe($.babel({
-			presets: ['es2015']
+			presets: ['env']
 		}))
 		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('./assets/js'));
