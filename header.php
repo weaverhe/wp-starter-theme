@@ -6,7 +6,9 @@
  *
  * @package starter-theme
  */
-?><!DOCTYPE html>
+
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -17,13 +19,14 @@
 
 	<?php wp_head(); ?>
 
-	<?php include ('templates/header/header-scripts.php'); ?>
+	<?php require 'templates/header/header-scripts.php'; ?>
 
 </head>
 
 <body <?php body_class(); ?>>
 
-<?php include ('templates/header/mobile-navigation.php'); ?>
+<?php require 'templates/header/mobile-navigation.php'; ?>
 
 <div id="content" class="site-content navigation--mobile__page">
-	<?php include ('templates/header/top-navigation.php'); ?>
+<?php
+	require 'templates/header/top-navigation.php';

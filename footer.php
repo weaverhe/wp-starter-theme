@@ -6,16 +6,17 @@
  *
  * @package starter-theme
  */
+
 ?>
 
-<?php include('templates/footer/footer-content.php'); ?>
+<?php require 'templates/footer/footer-content.php'; ?>
 </div><!-- #menu-content-->
 
 <a href="#" class="button go-top-button"><i class="fa fa-caret-up"></i></a>
 
 <?php wp_footer(); ?>
 
-<?php include('templates/footer/footer-scripts.php'); ?>
+<?php require 'templates/footer/footer-scripts.php'; ?>
 
 </body>
 </html>

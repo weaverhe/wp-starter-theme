@@ -7,23 +7,32 @@
 
 get_header(); ?>
 
-<?php if ( have_posts() ) : ?>
+<?php if ( have_posts() ) { ?>
 	<header class="page-header">
 		<div class="row">
-			<h1 class="page-header__title"><?php printf( __( 'Search Results for: %s', 'starter-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<h1 class="page-header__title">
+			<?php
+			printf(
+				esc_html( 'Search Results for: %s', 'starter-theme' ),
+				'<span>' . get_search_query() . '</span>'
+			);
+			?>
+			</h1>
 		</div>
 	</header>
 
 	<div class="page-content">
 		<div class="row">
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php
+			while ( have_posts() ) {
+				the_post();
 
-				<?php
 				/**
 				 * Run the loop for the search to output the results.
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
+
 				?>
 
 				<div class="blog-summary">
@@ -32,16 +41,17 @@ get_header(); ?>
 					<p class="blog-summary__link"><a href="<?php the_permalink(); ?>" title="View <?php the_title(); ?>">View Page</a></p>
 				</div>
 
-				<?php the_posts_navigation(); ?>
+				<?php
 
-			<?php endwhile; ?>
+				the_posts_navigation();
+			}
+			?>
 		</div>
 	</div>
 
-<?php else : ?>
+	<?php
+} else {
+	get_template_part( 'content', 'none' );
+}
 
-	<?php get_template_part( 'content', 'none' ); ?>
-
-<?php endif; ?>
-
-<?php get_footer(); ?>
+get_footer();

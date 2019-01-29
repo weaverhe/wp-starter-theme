@@ -1,3 +1,11 @@
+<?php
+/**
+ * A template file to display the footer content
+ *
+ * @package starter-theme/templates/footer
+ */
+
+?>
 <footer>
 	<div class="footer--primary row grid grid--dynamic-columns">
 		<div class="grid__item">
@@ -6,7 +14,16 @@
 
 		<div class="grid__item">
 			<p class="footer__title">Links</p>
-			<?php wp_nav_menu( array( 'theme_location' => 'footer', 'menu_id' => 'footer-menu', 'menu_class' => 'list--unstyled', 'container' => '' ) ); ?>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'footer',
+					'menu_id'        => 'footer-menu',
+					'menu_class'     => 'list--unstyled',
+					'container'      => '',
+				)
+			);
+			?>
 		</div>
 
 		<div class="grid__item">
@@ -38,6 +55,6 @@
 	</div>
 
 	<div class="footer--secondary">
-		<div class="row"><p>&copy; <?php echo date("Y"); ?>, Heather Weaver</p></div>
+		<div class="row"><p>&copy; <?php echo esc_html( date( 'Y' ) ); ?>, Heather Weaver</p></div>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->

@@ -38,7 +38,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 
 		global $page, $paged;
 
-		// Add the blog name
+		// Add the blog name.
 		$title .= get_bloginfo( 'name', 'display' );
 
 		// Add the blog description for the home/front page.
@@ -47,9 +47,9 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 			$title .= " $sep $site_description";
 		}
 
-		// Add a page number if necessary:
+		// Add a page number if necessary.
 		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-			$title .= " $sep " . sprintf( __( 'Page %s', 'starter-theme' ), max( $paged, $page ) );
+			$title .= " $sep " . sprintf( 'Page %s', 'starter-theme', max( $paged, $page ) );
 		}
 
 		return $title;
@@ -70,28 +70,35 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	add_action( 'wp_head', 'starter_theme_render_title' );
 endif;
 
-// Function to allow for variables to be passed to template files - replacement for 'include'
-function includeWithVariables($filePath, $variables = array(), $print = true)
-{
-    $output = NULL;
-    if(file_exists($filePath)){
-        // Extract the variables to a local namespace
-        extract($variables);
+/**
+ * A function to allow you to include a partial & pass through specific variables.
+ *
+ * @param string  $file_path the path to the partial file.
+ * @param array   $variables the variables to pass through to the partial.
+ * @param boolean $print whether the final content should be printed to screen or not.
+ * @return string
+ */
+function include_with_variables( $file_path, $variables = array(), $print = true ) {
+	$output = null;
 
-        // Start output buffering
-        ob_start();
+	if ( file_exists( $file_path ) ) {
+		// Extract the variables to a local namespace.
+		extract( $variables ); // phpcs:ignore
 
-        // Include the template file
-        include $filePath;
+		// Start output buffering.
+		ob_start();
 
-        // End buffering and return its contents
-        $output = ob_get_clean();
-    } else {
-    	return $filePath;
-    }
-    if ($print) {
-        print $output;
-    }
-    return $output;
+		// Include the template file.
+		include $file_path;
 
+		// End buffering and return its contents.
+		$output = ob_get_clean();
+	} else {
+		return $file_path;
+	}
+	if ( $print ) {
+		print $output; // phpcs:ignore
+	}
+
+	return $output;
 }
