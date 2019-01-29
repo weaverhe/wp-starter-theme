@@ -425,11 +425,6 @@ p q r s t u v w x y z { | } ~</samp></pre>
 					</tbody>
 				</table>
 			</div>
-
-<?php require 'templates/forms/form--plain.php'; ?>
-
-<?php require 'templates/forms/form--fancy.php'; ?>
-
 </div>
 
 <?php
