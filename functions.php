@@ -164,3 +164,15 @@ add_action( 'wp_enqueue_scripts', 'prefix_enqueue_awesome' );
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
+
+/**
+ * Undocumented function
+ *
+ * @param array $mimes the current set of allowed mime types.
+ * @return array
+ */
+function cc_mime_types( $mimes ) {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+add_filter( 'upload_mimes', 'cc_mime_types' );
