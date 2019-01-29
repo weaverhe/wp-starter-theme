@@ -18,7 +18,7 @@ include_with_variables(
 
 	<div class="row">
 		<p class="align--center"><?php esc_html( 'You\'ve been directed to a page that doesn\'t exist. Try a search, or one of the links below.', 'starter-theme' ); ?></p>
-		<?php get_search_form(); ?>
+		<?php require 'templates/forms/search-form.php'; ?>
 	</div>
 
 	<div class="row grid grid--thirds">
