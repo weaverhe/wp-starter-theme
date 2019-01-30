@@ -1,4 +1,3 @@
 {
-	"plugins" : ['babel-plugin-loop-optimizer'],
-	"presets" : ['env']
+	"presets" : ['@babel/env']
 }

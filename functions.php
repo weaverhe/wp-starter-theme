@@ -123,8 +123,8 @@ add_action( 'widgets_init', 'starter_theme_widgets_init' );
 /**
 * Definitions for cache busting scripts/styles
 */
-define( 'THEME_CSS', get_template_directory_uri() . '/assets/css/style.css?v=afe8760544a60bacd55e9d78a0d95127' );
-define( 'THEME_JS', get_template_directory_uri() . '/assets/js/scripts.js?v=aca141a9e38e0526a3e22fd6078a32b8' );
+define( 'THEME_CSS', get_template_directory_uri() . '/assets/css/style.css?v=044c6f17a02c20c8166474a911bc7ad0');
+define( 'THEME_JS', get_template_directory_uri() . '/assets/js/scripts.js?v=2720675570490498ecc11f5d4ae308cd');
 
 /**
  * Enqueue scripts and styles.
