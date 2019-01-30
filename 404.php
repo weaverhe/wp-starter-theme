@@ -7,10 +7,7 @@
 
 get_header();
 
-include_with_variables(
-	get_template_directory() . '/templates/header/page-header.php',
-	array( 'title' => 'Oops! 404.' )
-);
+require get_template_directory() . '/templates/header/page-header.php';
 
 ?>
 

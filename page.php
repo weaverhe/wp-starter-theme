@@ -15,12 +15,8 @@ get_header();
 while ( have_posts ) {
 	the_post();
 
-	include_with_variables(
-		get_template_directory() . '/templates/header/page-header.php',
-		array(
-			'title' => get_the_title(),
-		)
-	);
+	require get_template_directory() . '/templates/header/page-header.php';
+
 	?>
 	<article>
 

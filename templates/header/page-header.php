@@ -8,6 +8,6 @@
 ?>
 <header class="page-header">
 	<div class="row">
-		<h1 class="page-header__title"><?php echo esc_html( $title ); ?></h1>
+		<h1 class="page-header__title"><?php the_title(); ?></h1>
 	</div>
 </header>
