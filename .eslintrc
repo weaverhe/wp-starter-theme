@@ -12,6 +12,7 @@
 		"no-unused-vars": 1,
 		"globals": {
 			"wp": false
-		}
+		},
+		"space-in-parens": [2, "always"]
 	}
 }

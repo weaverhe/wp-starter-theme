@@ -2,8 +2,7 @@ module.exports = {
 	paths: {
 		sources: {
 			js: 'src/js/**/*.js',
-			jst: 'src/js/theme/**/*.js',
-			jsv: 'src/js/vendor/**/*.js',
+			jsM: 'src/js/scripts.js',
 			stylus: 'src/styl/**/*.styl',
 			stylusM: 'src/styl/style.styl',
 			img: 'src/img/*',
