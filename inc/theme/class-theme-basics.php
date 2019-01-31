@@ -250,6 +250,15 @@ class Theme_Basics {
 	}
 
 	/**
+	 * Enqueue the greensock timeline max library for animations.
+	 *
+	 * @return void
+	 */
+	public function add_greensock_script() {
+		$this->add_script( 'greensock', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js', array(), true );
+	}
+
+	/**
 	 * Remove an enqueued style
 	 *
 	 * @param string $handle the name of the style.

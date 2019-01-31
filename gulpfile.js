@@ -192,7 +192,7 @@ gulp.task( 'img-watch', gulp.series( 'compress-images', ( done ) => {
 // master 'watch' task to monitor all static assets for updates and run the appropriate function(s)
 gulp.task( 'watch', gulp.series( 'transpile-javascript', 'autoprefix-css', 'compress-images', () => {
 	browserSync.init( {
-		proxy: 'localhost:8888',
+		proxy: 'http://stheme',
 	} );
 
 	gulp.watch( sources.stylus, gulp.series( 'stylus-watch' ) );

@@ -15,7 +15,6 @@ $theme         = new Theme_Extras( 'starter-theme', $theme_version );
 $theme->add_nav_menus(
 	[
 		'primary' => 'Primary Menu',
-		'mobile'  => 'Mobile Menu',
 		'footer'  => 'Footer',
 	]
 );
@@ -28,6 +27,7 @@ $theme->add_style( 'starter-theme-style', get_template_directory_uri() . '/asset
 $theme->add_style( 'fontawesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), 'all' );
 
 // enqueue scripts.
+$theme->add_greensock_script();
 $theme->add_script( 'starter-theme-script', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ) );
 $theme->add_polyfill_script( array() );
 

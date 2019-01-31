@@ -10,9 +10,17 @@
         "no-tabs": 0,
 		"no-undef": 1,
 		"no-unused-vars": 1,
-		"globals": {
-			"wp": false
-		},
-		"space-in-parens": [2, "always"]
+		"space-in-parens": [2, "always"],
+		"space-unary-ops": [
+			2, {
+				"words": false,
+				"nonwords": true 
+			}
+		]
+	},
+	"globals": {
+		"TimelineLite": false,
+		"TweenMax": false,
+		"wp": false
 	}
 }

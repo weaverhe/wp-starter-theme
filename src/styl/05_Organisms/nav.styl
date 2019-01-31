@@ -1,135 +1,67 @@
-.navigation--mobile__trigger
-	display block
-	position relative
-	overflow hidden
-	margin 0
-	padding 0
-	height 80px
-	width 80px
-	text-indent -9999px
-	float right
-
-	span
-		display block
-		position absolute
-		top 32px
-		left 18px
-		right 18px
-		height 6px
-		background $cta-main
-		transition transform 0.3s
-
-		&:before
-		&:after
-			position absolute
-			display block
-			left 0
-			width 100%
-			height 6px
-			background-color $cta-main
-			content ''
-			transition transform 0.3s, width 0.3s, bottom 0.3s
-
-		&:before
-			top -13px
-			transform-origin top right
-
-		&:after
-			bottom -13px
-			transform-origin bottom right
-
-	&.navigation--mobile__trigger--arrow
-		span
-			transform rotate(180deg)
-
-			&:before
-			&:after
-				width 50%
-
-			&:before
-				top 0
-				transform translateX(26px)translateY(2px)rotate(45deg)
-
-			&:after
-				bottom 0
-				transform translateX(26px)translateY(-2px)rotate(-45deg)
-
-.navigation--mobile__container
-	float right
-	width 250px
-	height 100%
-	display none
-	background-color $secondary-cta
-
-	ul
-		list-style-type none
-		padding-left 0
-		margin 0
-
-	a
-		display block
-		width 100%
-		line-height 40px
-		border-bottom 1px solid white
-		padding 0 10px
-		color white
-		text-decoration none
-
-.navigation--mobile__page
-	min-height 100%
-	width 100%
-	z-index 10
-	position absolute
-	right 0
-	background-color white
-	box-shadow 0 0 15px -5px
-
-// primary navigation styles
-.navigation--primary
-	background-color $white
-
-.navigation--primary__logo-container
-	float left
-	width 108px
-	margin 13px 0
-
-.navigation--primary__menu
-	display none
-	margin 23px 0
-	float right
-
-	ul
-		margin 0
-
-	a
-		text-decoration none
-
-.navigation--primary__logo
-	display block
-
-@media screen and (min-width 900px)
-	.navigation--mobile__trigger
-		display none
-
-	.navigation--primary__menu
-		display block
-
-// fixed styles
-.navigation--primary__container--fixed
+.nav--top
 	position fixed
-	top -77px
+	top 0
 	left 0
 	right 0
-	background-color rgba(255, 255, 255, 0.95)
-	transition top 0.3s ease-in-out
-	z-index 100
 
-.navigation--primary-fixed
-	.navigation--primary__container--initial
+	background-color $white
+
+.nav__content
+	display flex
+	justify-content space-between
+	align-items center
+
+	height $nav-height
+
+.nav__logo
+	display block
+
+.nav__menu
+	display flex
+	align-items center
+	justify-content center
+	flex-direction column
+
+	position absolute
+	top $nav-height
+	right 0
+	bottom 0
+	left 0
+
+	padding 0
+	margin 0
+	width 100%
+	min-height 'calc(100vh - %s)' % $nav-height
+
+	list-style-type none
+	background-color $white
+
+	transform translateX(-100%)
+	transform-origin left center
+
+	li
+		padding 1vw 0
+
+		opacity 0
+		transform translateY(25px)
+
+@media screen and (min-width 900px)
+	.nav__mobile-link
 		display none
 
-	.navigation--primary__container--fixed
+	.nav__menu
+		flex-direction row
+
+		position relative
 		top 0
 
-.logged-in .navigation--primary-fixed .navigation--primary__container--fixed
-	top 32px
+		width auto
+		min-height initial
+
+		transform none
+
+		li
+			margin-left 2vw
+
+			opacity 100
+			transform none

@@ -19,14 +19,10 @@
 
 	<?php wp_head(); ?>
 
-	<?php require 'templates/header/header-scripts.php'; ?>
+	<?php get_template_part( 'templates/header/header', 'scripts' ); ?>
 
 </head>
 
 <body <?php body_class(); ?>>
 
-<?php require 'templates/header/mobile-navigation.php'; ?>
-
-<div id="content" class="site-content navigation--mobile__page">
-<?php
-	require 'templates/header/top-navigation.php';
+<?php get_template_part( 'templates/navigation/navigation', 'top' ); ?>
