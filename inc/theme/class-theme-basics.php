@@ -97,6 +97,9 @@ class Theme_Basics {
 				'caption',
 			)
 		);
+
+		// setup ACF JSON support.
+		add_filter( 'acf/settings/save_json', 'my_acf_json_save_point' );
 	}
 
 	/**
@@ -359,5 +362,17 @@ class Theme_Basics {
 		);
 
 		return $this;
+	}
+
+	/**
+	 * Set a custom directory to save ACF JSON files
+	 *
+	 * @param string $path the original directory for the JSON files.
+	 * @return string
+	 */
+	public function custom_acf_json_save_point( $path ) {
+		$path = get_stylesheet_directory() . '/fields';
+
+		return $path;
 	}
 }
