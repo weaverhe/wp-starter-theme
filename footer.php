@@ -9,12 +9,33 @@
 
 ?>
 
-<?php require 'templates/footer/footer-content.php'; ?>
-</div><!-- #menu-content-->
+<footer class="footer" role="contentinfo">
+
+	<?php get_template_part( 'templates/footer/footer', 'widgets' ); ?>
+
+	<?php if ( has_nav_menu( 'social' ) ) : ?>
+		<nav class="footer__social" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'twentyseventeen' ); ?>">
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'social',
+						'menu_class'     => 'social-links-menu',
+						'depth'          => 1,
+						'link_before'    => '<span class="screen-reader-text">',
+						'link_after'     => '</span>',
+					)
+				);
+			?>
+		</nav><!-- .social-navigation -->
+	<?php endif; ?>
+
+	<?php get_template_part( 'templates/footer/footer', 'site-info' ); ?>
+
+</footer>
 
 <?php wp_footer(); ?>
 
-<?php require 'templates/footer/footer-scripts.php'; ?>
+<?php get_template_part( 'templates/footer/footer', 'scripts' ); ?>
 
 </body>
 </html>

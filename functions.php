@@ -11,11 +11,19 @@ $theme_info    = wp_get_theme();
 $theme_version = $theme_info->version;
 $theme         = new Theme_Extras( 'starter-theme', $theme_version );
 
+// load the widget classes.
+require get_template_directory() . '/inc/widgets/class-logo-widget.php';
+
+// load & init the menu classes.
+require get_template_directory() . '/inc/menus/class-social-menu.php';
+$social = new Social_Menu();
+
 // setup nav menus.
 $theme->add_nav_menus(
 	[
 		'primary' => 'Primary Menu',
 		'footer'  => 'Footer',
+		'social'  => 'Social',
 	]
 );
 
@@ -37,9 +45,24 @@ $theme->add_sidebar(
 		'name'          => 'Sidebar',
 		'id'            => 'sidebar-1',
 		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget sidebar__widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
 	)
 );
+
+$theme->add_sidebar(
+	array(
+		'name'          => 'Footer Widgets',
+		'id'            => 'footer',
+		'description'   => '',
+		'before_widget' => '<section id="%1$s" class="widget footer__widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	)
+);
+
+
+$theme->add_widget( 'Logo_Widget' );

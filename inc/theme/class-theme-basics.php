@@ -374,6 +374,38 @@ class Theme_Basics {
 	}
 
 	/**
+	 * Register a new widget
+	 *
+	 * @param string $widget_class the name of the widget class to register.
+	 * @return object
+	 */
+	public function add_widget( $widget_class ) {
+		$this->action_widget_init(
+			function() use ( $widget_class ) {
+				register_widget( $widget_class );
+			}
+		);
+
+		return $this;
+	}
+
+	/**
+	 * Remove a widget
+	 *
+	 * @param string $widget_class the name of the widget class to remove.
+	 * @return object
+	 */
+	public function remove_widget( $widget_class ) {
+		$this->action_widget_init(
+			function() use ( $widget_class ) {
+				unregister_widget( $widget_class );
+			}
+		);
+
+		return $this;
+	}
+
+	/**
 	 * Set a custom directory to save ACF JSON files
 	 *
 	 * @param string $path the original directory for the JSON files.
