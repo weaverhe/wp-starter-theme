@@ -259,6 +259,34 @@ class Theme_Basics {
 	}
 
 	/**
+	 * Enqueue the slick slider library
+	 *
+	 * @return void
+	 */
+	public function add_slick_slider_script() {
+		$this->add_script( 'slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), true );
+	}
+
+	/**
+	 * Enqueue the mixitup library
+	 *
+	 * @return void
+	 */
+	public function add_mixitup_script() {
+		$this->add_style( 'mixitup', 'https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.css', array() );
+		$this->add_script( 'mixitup', 'https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js', array(), true );
+	}
+
+	/**
+	 * Enqueue the magnific popup library
+	 *
+	 * @return void
+	 */
+	public function add_magnific_script() {
+		$this->add_script( 'magnific', '', array(), true );
+	}
+
+	/**
 	 * Remove an enqueued style
 	 *
 	 * @param string $handle the name of the style.
