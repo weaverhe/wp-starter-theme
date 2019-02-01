@@ -223,7 +223,7 @@ class Theme_Basics {
 	public function add_script( $handle, $src = '', $deps = array(), $in_footer = true ) {
 		$this->action_enqueue_scripts(
 			function() use ( $handle, $src, $deps, $in_footer ) {
-				wp_enqueue_script( $handle, $src, $deps, $this->theme_version, $media );
+				wp_enqueue_script( $handle, $src, $deps, $this->theme_version, $in_footer );
 			}
 		);
 
