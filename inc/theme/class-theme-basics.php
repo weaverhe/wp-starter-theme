@@ -283,7 +283,8 @@ class Theme_Basics {
 	 * @return void
 	 */
 	public function add_magnific_script() {
-		$this->add_script( 'magnific', '', array(), true );
+		$this->add_style( 'magnific', 'https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.css', array() );
+		$this->add_script( 'magnific', 'https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js', array(), true );
 	}
 
 	/**
