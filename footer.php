@@ -9,6 +9,8 @@
 
 ?>
 
+</div>
+
 <footer class="footer" role="contentinfo">
 
 	<?php get_template_part( 'templates/footer/footer', 'widgets' ); ?>

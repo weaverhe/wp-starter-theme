@@ -27,3 +27,5 @@
 	<a class="skip-link screen-reader-text" href="#content">Skip to Content</a>
 
 	<?php get_template_part( 'templates/navigation/navigation', 'top' ); ?>
+
+	<div id="content">
