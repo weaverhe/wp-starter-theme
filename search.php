@@ -1,30 +1,31 @@
 <?php
 /**
- * The template for displaying search results pages.
+ * The template for displaying search results pages
  *
  * @package starter-theme
  */
 
 get_header(); ?>
 
-<?php if ( have_posts() ) { ?>
-	<header class="page-header">
-		<div class="row">
-			<h1 class="page-header__title">
-			<?php
-			printf(
-				esc_html( 'Search Results for: %s', 'starter-theme' ),
-				'<span>' . get_search_query() . '</span>'
-			);
-			?>
-			</h1>
-		</div>
-	</header>
+<div class="page page--standard-sidebar page--search">
+	<?php
+	global $custom_page_title;
 
-	<div class="page-content">
-		<div class="row">
-			<?php
-			while ( have_posts() ) {
+	if ( have_posts() ) {
+		$custom_page_title = sprintf( 'Search Results for: %s', '<span class="search-query>' . get_search_query() . '</span>' );
+	} else {
+		$custom_page_title = 'Nothing Found';
+	}
+
+	get_template_part( 'templates/content/header', 'simple' );
+	?>
+
+	<div class="page__content row">
+		<main class="page__main" role="main">
+		<?php
+		if ( have_posts() ) :
+			/* Start the Loop */
+			while ( have_posts() ) :
 				the_post();
 
 				/**
@@ -32,26 +33,26 @@ get_header(); ?>
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
+				get_template_part( 'templates/content/post', 'excerpt' );
 
-				?>
+			endwhile; // End of the loop.
 
-				<div class="blog-summary">
-					<?php the_title( sprintf( '<p class="blog-summary__title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></p>' ); ?>
-					<p class="blog-summary__excerpt"><?php the_excerpt(); ?></p>
-					<p class="blog-summary__link"><a href="<?php the_permalink(); ?>" title="View <?php the_title(); ?>">View Page</a></p>
-				</div>
+			the_posts_pagination();
 
-				<?php
-
-				the_posts_navigation();
-			}
+		else :
 			?>
-		</div>
+
+			<p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+			<?php
+				get_search_form();
+
+		endif;
+		?>
+
+		</main>
+		<?php get_sidebar(); ?>
 	</div>
+</div>
 
-	<?php
-} else {
-	get_template_part( 'content', 'none' );
-}
-
-get_footer();
+<?php
+	get_footer();

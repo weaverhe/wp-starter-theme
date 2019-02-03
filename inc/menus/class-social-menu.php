@@ -51,8 +51,6 @@ class Social_Menu {
 				if ( false !== strpos( $item_output, $attr ) ) {
 					if ( $args->link_after ) {
 						$item_output = str_replace( $args->link_after, '</span>' . $this->get_svg( array( 'icon' => esc_attr( $value ) ) ), $item_output );
-					} else {
-						echo $item_output;
 					}
 				}
 			}
@@ -180,3 +178,8 @@ class Social_Menu {
 		return $svg;
 	}
 }
+
+/**
+ * Init the menu
+ */
+new Social_Menu();

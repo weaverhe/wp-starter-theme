@@ -7,33 +7,25 @@
 
 get_header();
 
-require get_template_directory() . '/templates/header/page-header.php';
 
 ?>
+<div class="page page--stacked">
+	<main class="page_main" role="main">
 
-<div class="page-content">
-
-	<div class="row">
-		<p class="align--center"><?php esc_html( 'You\'ve been directed to a page that doesn\'t exist. Try a search, or one of the links below.', 'starter-theme' ); ?></p>
-		<?php require 'templates/forms/search-form.php'; ?>
-	</div>
-
-	<div class="row grid grid--thirds">
-		<div class="grid__item">
-			<?php the_widget( 'WP_Widget_Pages', '', 'before_title=<h4 class="widget__title">&after_title=</h4>' ); ?>
-		</div>
-		<div class="grid__item">
-			<?php the_widget( 'WP_Widget_Recent_Posts', 'title=Recent Blog Posts&number=3', 'before_title=<h4 class="widget__title">&after_title=</h4>' ); ?>		
-		</div>
-		<div class="grid__item">
+		<section class="page_content-area">
 			<?php
-				/* translators: %1$s: smiley */
-				$archive_content = '<p>Try looking in the monthly archives:</p>';
-				the_widget( 'WP_Widget_Archives', '', "before_title=<h4 class='widget__title'>&after_title=</h4>$archive_content" );
+				global $custom_page_title;
+				$custom_page_title = 'Sorry! That page doesn\'t seem to exist.';
+				get_template_part( 'templates/content/header', 'simple' );
 			?>
-		</div>
-	</div>
 
+			<div class="page_content row">
+				<?php get_search_form(); ?>
+			</div>
+		</section>
+
+	</main>
+	<?php get_sidebar( '404' ); ?>
 </div>
 
 <?php

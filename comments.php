@@ -18,12 +18,12 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments">
 
 	<?php // You can start editing here -- including this comment! ?>
 
 	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
+		<h2 class="comments__title">
 			<?php
 			$comments_number = get_comments_number();
 			if ( '1' === $comments_number ) {
@@ -58,17 +58,16 @@ if ( post_password_required() ) {
 		<?php
 		if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 			?>
-			<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+			<nav id="comment-nav-above" class="navigation comments__navigation" role="navigation">
 				<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'starter-theme' ); ?></h2>
-				<div class="nav-links">
-					<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'starter-theme' ) ); ?></div>
-					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'starter-theme' ) ); ?></div>
-
+				<div class="comments__navigation-links">
+					<div class="comments__navigation-link comments__navigation-link--previous"><?php previous_comments_link( __( 'Older Comments', 'starter-theme' ) ); ?></div>
+					<div class="comments__navigation-link comments__navigation-link--next"><?php next_comments_link( __( 'Newer Comments', 'starter-theme' ) ); ?></div>
 				</div>
 			</nav>
 		<?php endif; ?>
 
-		<ol class="comment-list">
+		<ol class="comments__list">
 			<?php
 				wp_list_comments(
 					array(
@@ -82,15 +81,13 @@ if ( post_password_required() ) {
 		<?php
 		if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 			?>
-			<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+			<nav id="comment-nav-below" class="navigation comments__navigation" role="navigation">
 				<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'starter-theme' ); ?></h2>
-				<div class="nav-links">
-
-					<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'starter-theme' ) ); ?></div>
-					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'starter-theme' ) ); ?></div>
-
-				</div><!-- .nav-links -->
-			</nav><!-- #comment-nav-below -->
+				<div class="comments__navigation-links">
+					<div class="comments__navigation-link comments__navigation-link--previous"><?php previous_comments_link( __( 'Older Comments', 'starter-theme' ) ); ?></div>
+					<div class="comments__navigation-link comments__navigation-link--next"><?php next_comments_link( __( 'Newer Comments', 'starter-theme' ) ); ?></div>
+				</div>
+			</nav>
 		<?php endif; ?>
 	<?php endif; ?>
 

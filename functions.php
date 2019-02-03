@@ -16,7 +16,6 @@ require get_template_directory() . '/inc/widgets/class-logo-widget.php';
 
 // load & init the menu classes.
 require get_template_directory() . '/inc/menus/class-social-menu.php';
-$social = new Social_Menu();
 
 // setup nav menus.
 $theme->add_nav_menus(
@@ -54,7 +53,19 @@ $theme->add_sidebar(
 
 $theme->add_sidebar(
 	array(
-		'name'          => 'Footer Widgets',
+		'name'          => '404',
+		'id'            => '404',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget sidebar__widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	)
+);
+
+$theme->add_sidebar(
+	array(
+		'name'          => 'Footer Content',
 		'id'            => 'footer',
 		'description'   => '',
 		'before_widget' => '<section id="%1$s" class="widget footer__widget %2$s">',

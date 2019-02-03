@@ -2,7 +2,7 @@
 /**
  * The header for our theme.
  *
- * Displays all of the <head> section and everything up till <div id="content">
+ * Displays all of the <head> section and  site navigation
  *
  * @package starter-theme
  */
@@ -24,5 +24,6 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<a class="skip-link screen-reader-text" href="#content">Skip to Content</a>
 
-<?php get_template_part( 'templates/navigation/navigation', 'top' ); ?>
+	<?php get_template_part( 'templates/navigation/navigation', 'top' ); ?>
