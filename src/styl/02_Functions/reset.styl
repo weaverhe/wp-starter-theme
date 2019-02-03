@@ -3,12 +3,15 @@ html
 *
 *:before
 *:after
+	vertical-align baseline
+
 	box-sizing inherit
 	margin 0
 	padding 0
-	border 0
+
 	font inherit
-	vertical-align baseline
+
+	border 0
 	
 sup
 	vertical-align text-top
@@ -19,19 +22,16 @@ sub
 body
 	padding-top $nav-height
 
-	line-height 1
-	font-size 16px
-	font-family $roboto
 	color $color--text
+	font-size 1.75vmax
+	font-family $roboto
+	line-height 1
 
-	@media screen and (min-width 601px)
-		font-size 18px
-		
-	@media screen and (min-width 901px)
-		font-size 20px
-		
-	@media screen and (min-width 1201px)
-		font-size 21px
+	@media screen and (min-width $breakpoint--laptop)
+		font-size 1.25vmax
+
+	@media screen and (min-width $breakpoint--monitor)
+		font-size 1vmax
 
 	&.admin-bar
 		padding-top 'calc(32px + %s)' % $nav-height

@@ -3,34 +3,35 @@
 button
 input[type='submit']
 .button
-	background-color $cta-main--light
-	appearance none
-	-webkit-appearance none
-	border 0
-	color white
-	font-weight 300
-	font-size 1em
-	padding 5px 15px
-	border-bottom 2px $cta-main solid
 	position relative
+
+	padding $spacing--xs $spacing--s
+
+	color $white
+	font-size 1em
+	font-weight 300
 	text-decoration none
+
+	appearance none
+	background-color $cta-main--light
+	border 0
+	border-bottom 2px $cta-main solid
+
 	transition background-color 0.3s ease-in, border-bottom-color 0.3s ease-in
 
 	&:hover
 	&:focus
 	&:active
-		background-color $cta-main
 		color white
+
+		background-color $cta-main
 		border-bottom 2px $cta-main--dark solid
 	
 	&:active
-		border-bottom 0
 		top 2px
-	
-	&:active
-	&:focus
-		outline 0
+
+		border-bottom 0
 
 button[type='submit']
 input[type='submit']
-	margin 0 1em
+	margin 0 $spacing--xs

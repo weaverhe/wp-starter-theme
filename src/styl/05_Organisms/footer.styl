@@ -1,21 +1,27 @@
 footer
-	background-color $color--text
+	padding $spacing--m 0 0
+
 	color $white
-	padding 5vh 0 0
+
+	background-color $color--text
 
 .footer__widgets
-	display flex
 	align-items center
+	display flex
 	justify-content space-between
 
 .footer__info
-	margin-top 2.5vh
-	padding 1vh 0
+	margin-top $spacing--s
+	padding $spacing--xs 0
 
 	background-color lighten( $color--text, 10% )
 
 .footer__info-content
-	margin 0
+	margin 0 auto
 
-	text-align center
 	font-size 0.8em
+	text-align center
+
+	a
+		color $white
+		text-decoration none

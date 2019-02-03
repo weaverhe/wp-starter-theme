@@ -58,7 +58,7 @@ $class_prefix = is_single() ? 'full-post' : 'post-summary';
 	<?php elseif ( ! is_single() && ! get_post_gallery() ) : ?>
 		<div class="<?php echo esc_html( $class_prefix ); ?>__content">
 			<?php the_excerpt(); ?>
-			<a href="<?php the_permalink(); ?>" class="button" title="Continue reading <?php the_title(); ?>">Read More</a>	
+			<p><a href="<?php the_permalink(); ?>" class="button" title="Continue reading <?php the_title(); ?>">Read More</a></p>
 		</div>
 	<?php else : ?>
 		<div class="<?php echo esc_html( $class_prefix ); ?>__content">

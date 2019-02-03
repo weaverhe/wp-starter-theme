@@ -1,34 +1,39 @@
 table
-	margin 10px
+	margin $spacing--xs
 
 caption
-	background-color $cta-main--dark
+	padding $spacing--xs
+
 	color white
 	font-size 1.618em
 	font-weight 400
-	padding 10px
+
+	background-color $cta-main--dark
 
 thead
 	background-color $cta-main
 
 th
-	text-align center
+	padding $spacing--xs
+
 	color white
-	padding 10px
+	text-align center
 
 tbody
 	tr:nth-child(even)
-		background-color $grey--lightest
+		background-color $color--neutral
 
 
 	tr
-		border-bottom 1px solid $grey--lighter
+		border-bottom 1px solid $color--border
 
 
 td
-	border-right 1px solid $grey--lighter
+	padding $spacing--xs
+
 	text-align center
-	padding 5px
+
+	border-right 1px solid $color--neutral
 
 	&:last-child
 		border-right 0

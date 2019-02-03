@@ -27,7 +27,7 @@ if ( post_password_required() ) {
 			<?php
 			$comments_number = get_comments_number();
 			if ( '1' === $comments_number ) {
-				print_f(
+				printf(
 					/* translators: %s: post title */
 					_x(
 						'One Reply to &ldquo;%s&rdquo;',

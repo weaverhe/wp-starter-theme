@@ -100,6 +100,10 @@ class Theme_Basics {
 
 		// setup ACF JSON support.
 		add_filter( 'acf/settings/save_json', 'my_acf_json_save_point' );
+
+		// make embeds responsive.
+		add_filter( 'embed_oembed_html', array( $this, 'responsive_video_embeds' ), 10, 3 );
+		add_filter( 'video_embed_html', array( $this, 'responsive_video_embeds' ) );
 	}
 
 	/**
@@ -444,5 +448,15 @@ class Theme_Basics {
 		$path = get_stylesheet_directory() . '/fields';
 
 		return $path;
+	}
+
+	/**
+	 * Wrap the video embed code in a div to make responsive.
+	 *
+	 * @param string $html the video markup.
+	 * @return string
+	 */
+	public function responsive_video_embeds( $html ) {
+		return '<div class="responsive-embed">' . $html . '</div>';
 	}
 }

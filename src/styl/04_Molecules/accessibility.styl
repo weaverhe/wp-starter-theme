@@ -1,6 +1,6 @@
 .screen-reader-text
-	overflow hidden
 	position absolute !important
+	overflow hidden
 
 	height 1px
 	width 1px
@@ -10,21 +10,21 @@
 	clip rect(1px, 1px, 1px, 1px)
 
 	&:focus
-		top 5px
-		left 5px
-		z-index 100000
 		display block
 
+		left 5px
+		top 5px
+		z-index 100000
+
+		height auto
 		padding 15px 23px 14px
 		width auto
-		height auto
 
-		font-size 14px
+		color $cta-main
 		font-size 0.875rem
 		font-weight 700
-		text-decoration none
 		line-height normal
-		color $cta-main
+		text-decoration none
 
 		background-color $white
 		border-radius 3px

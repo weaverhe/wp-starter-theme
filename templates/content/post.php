@@ -58,7 +58,7 @@ $class_prefix = is_single() ? 'full-post' : 'post-summary';
 		} else {
 			the_excerpt();
 			?>
-			<a href="<?php the_permalink(); ?>" class="button" title="Continue reading <?php the_title(); ?>">Read More</a>	
+			<p><a href="<?php the_permalink(); ?>" class="button" title="Continue reading <?php the_title(); ?>">Read More</a></p>
 			<?php
 		}
 		?>
