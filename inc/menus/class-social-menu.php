@@ -44,7 +44,7 @@ class Social_Menu {
 	 */
 	public function social_menu_walker( $item_output, $item, $depth, $args ) {
 		$social_icons = $this->supported_social_icons();
-		$menu_name    = strtolower( $args->menu->name );
+		$menu_name    = 'object' === gettype( $args->menu ) ? strtolower( $args->menu->name ) : $args->menu;
 
 		if ( 'social' === $menu_name ) {
 			foreach ( $social_icons as $attr => $value ) {
