@@ -3,35 +3,102 @@
 button
 input[type='submit']
 .button
-	position relative
+	display inline-block
 
-	padding $spacing--xs $spacing--s
+	height 2.5em
+
+	padding 0 1.5em
 
 	color $white
-	font-size 1em
-	font-weight 300
+	font-weight 500
+	font-family $work-sans
 	text-decoration none
+	line-height 2.5em
 
-	appearance none
-	background-color $cta-main--light
-	border 0
-	border-bottom 2px $cta-main solid
+	background-color $cta-main
 
-	transition background-color 0.3s ease-in, border-bottom-color 0.3s ease-in
+	transition 0.5s
+
+	cursor pointer
+
+	i
+		display inline-block
+
+		transition 0.5s
+
+button
+.button
+	position relative
+
+	svg
+		position absolute
+		left 0.25em
+		top 0.25em
+
+		height 2.5em
+		width 100%
+
+	rect
+		fill none
+		stroke $green
+		stroke-width 2
+		stroke-dasharray 422, 0
+
+		transition all 1.35s cubic-bezier(0.19, 1, 0.22, 1)
+
+	&:disabled
+		opacity 0.2
+
+		pointer-events none
+
+		rect
+		svg
+			display none
 
 	&:hover
+	&:active
 	&:focus
+		background-color $cta-main--dark
+		color $white
+
+		i
+			transform translateX(10px)
+
+		rect
+			stroke-width 5
+			stroke-dasharray 15, 350
+			stroke-dashoffset 48
+
+.button--large
+	font-size $font--large
+
+.button--white
+	color $teal
+
+	background-color $white
+
+	rect
+		stroke $purple
+
+	&:hover
 	&:active
-		color white
+	&:focus
+		color $teal
 
-		background-color $cta-main
-		border-bottom 2px $cta-main--dark solid
-	
+		background-color $grey--lighter
+
+.button--outline
+	color $purple
+
+	background-color transparent
+	border 1px solid $purple
+
+	rect
+		stroke $teal
+
+	&:hover
 	&:active
-		top 2px
+	&:focus
+		color $purple
 
-		border-bottom 0
-
-button[type='submit']
-input[type='submit']
-	margin 0 $spacing--xs
+		background-color rgba($purple, 0.1)

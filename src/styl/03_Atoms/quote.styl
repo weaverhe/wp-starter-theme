@@ -1,24 +1,20 @@
 blockquote
-	position relative
-
-	padding-left $spacing--m
-
 	font-size 1.2em
+	padding-left 30px
+	position relative
 
 	&:before
 		position absolute
-		top 0
-		bottom 0
-		left $spacing--s
-
-		width 4px
-
 		content ''
-
+		left 15px
+		bottom 0
+		top 0
+		width 4px
 		background-color $cta-main--light
 
-	@media screen and (min-width $breakpoint--phablet)
+	@media screen and (min-width 601px)
 		font-size 1.4em
+		padding-left 50px
 
 		&:before
 			width 7px

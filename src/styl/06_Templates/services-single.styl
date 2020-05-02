@@ -1,0 +1,282 @@
+.service-header
+	padding 40px 0
+
+	background $gradient--grey
+
+	@media screen and (min-width 800px)
+		padding 80px 0
+
+.service-header__title
+	margin-top 0
+	margin-bottom 2.4rem
+
+	color $teal
+
+	span
+		display block
+
+		color $color--text
+		font-family $inconsolata
+		font-size 1.33rem
+		font-weight 400
+		line-height 1
+
+.service-header__cta
+	margin 0
+
+// reasons
+.service-reasons
+	margin-top 100px
+
+.service-reasons__headline
+	max-width 420px
+
+.service-reasons__slider
+	width 100%
+	max-width 1166px
+
+	margin 50px auto
+
+.service-reasons__slide.slick-slide
+	@media screen and (min-width 600px)
+		display flex
+		align-items center
+
+
+.service-reasons__slide-img-container
+	@media screen and (min-width 600px)
+		width 40%
+
+.service-reasons__icon
+	display block
+
+	width 100%
+	height auto
+	max-width 300px
+
+	margin 0 auto
+
+
+	@media screen and (min-width 600px)
+		float right
+
+.service-reasons__slide-content-container
+	@media screen and (min-width 600px)
+		width 60%
+
+		padding-left 30px
+
+.service-reasons__label
+	margin-bottom 5px
+
+.service-reasons__slide-headline
+	position relative
+
+	margin-top 0
+	margin-bottom 45px
+
+	&:after
+		content ''
+
+		position absolute
+		bottom -15px
+		left 0
+
+		width 130px
+		height 6px
+
+		background-color $purple--bg
+
+.service-reasons__content
+	padding-left 15px
+
+.service-reasons__slider-button
+	position relative
+
+	padding 0 5px
+	margin 0 10px 15px
+
+	color $grey
+	font-size 0.76em
+
+	background-color $white
+	
+	&:after
+		content ''
+
+		position absolute
+		left 0
+		right 0
+		top 0
+
+		height 6px
+
+		background-color $grey
+
+		transition 0.5s
+
+	&:hover
+	&:active
+	&:focus
+		color $color--text
+
+		background-color $white
+		
+		&:after
+			background-color $color--text
+
+.service-reasons .slick-active .service-reasons__slider-button
+	color $color--text
+
+	&:after
+		background-color $color--text
+
+.service-reasons .slick-dots
+	margin-top 30px
+
+	@media screen and (min-width 600px)
+		margin-top 90px
+
+// services
+.services__headline
+	display inline-block
+
+	padding-left 10px
+	padding-right 15px
+
+.services__container
+	@media screen and (min-width 600px)
+		display flex
+		flex-wrap wrap
+		justify-content space-between
+
+.services__service-container
+	margin-top 50px
+
+	@media screen and (min-width 600px)
+		width 45%
+
+.services__service-icon
+	display block
+
+	max-width 220px
+	max-height 220px
+	width auto
+	height auto
+
+	margin 0 auto 25px
+
+.services__service-headline
+	position relative
+
+	margin-bottom 36px
+
+	&:after
+		content ''
+
+		position absolute
+		left 0
+		bottom -15px
+
+		width 75px
+		height 6px
+
+		background-color $teal
+
+// middle cta
+.service-cta
+	margin 150px auto
+
+	text-align center
+
+.service-cta__label
+	margin-bottom 10px
+
+// process
+.service-process__headline
+	max-width 325px
+
+	padding-left 25px
+	padding-right 25px
+
+.service-process__container
+	padding 0 10px
+
+	@media screen and (min-width 400px)
+		display flex
+		flex-wrap wrap
+		align-items center
+		justify-content space-between
+
+.service-process
+	opacity 0
+	transform translateY(75px)
+
+	@media screen and (min-width 400px)
+		width 48%
+
+	@media screen and (min-width 700px)
+		width 30%
+
+	@media screen and (min-width 1000px)
+		width 15.67%
+
+.service-process__top
+	position relative
+
+.service-process__content
+	display flex
+	align-items center
+	justify-content center
+
+	position absolute
+	top 0
+	bottom 0
+	right 0
+	left 0
+
+	background-color white
+	opacity 0
+
+	transition 0.5s
+
+.service-process__top:hover
+	.service-process__content
+		opacity 0.97
+
+	p
+		max-width 200px
+
+.service-process__icon
+	max-width 100%
+	height auto
+
+.service-process__number
+	margin 0
+
+	font-family $work-sans
+	color $grey--lighter
+	font-weight 900
+	font-size 80px
+	line-height 1
+
+.service-process__name
+	position relative
+	left 35px
+	top -45px
+
+	margin 0
+
+	width calc(100% - 35px)
+
+	font-weight 900
+	font-family $work-sans
+
+// featured project
+.featured-project__header
+	margin-top 250px
+
+.featured-project__header-headline
+	display inline-block
+	padding-left 30px
+	padding-right 30px

@@ -1,0 +1,125 @@
+.hero--homepage
+	margin-bottom 75px
+
+	transform scaleX(0)
+	transform-origin left center
+
+	@media screen and (min-width 975px)
+		margin-bottom 120px
+
+	.row
+		overflow visible
+
+.homepage-hero__intro
+	padding-top 3.75em
+	margin-top 0
+
+	font-size 1rem
+	font-family $inconsolata
+	font-weight 400
+
+	@media screen and (min-width 500px)
+		font-size 1.4rem
+
+	@media screen and (min-width 975px)
+		font-size 1.9rem
+
+.homepage-hero__intro-top
+	display block
+
+	transform translateY(50px)
+	opacity 0
+
+.homepage-hero__intro-hover
+	opacity 0
+
+	transform scaleY(0.8)
+	transform-origin bottom
+
+	transition 0.2s
+
+
+.homepage-hero__intro-top:hover ~ .homepage-hero__intro-hover
+.homepage-hero__intro-hover:hover
+	opacity 1
+
+	transform scaleY(1)
+
+// rotating words
+.hero--homepage__title
+	font-size 1.5em
+
+	@media screen and (min-width 400px)
+		font-size 1.95em
+
+	@media screen and (min-width 475px)
+		font-size 2.4em
+
+	@media screen and (min-width 625px)
+		font-size 2.7em
+
+	@media screen and (min-width 730px)
+		font-size 3.2em
+
+	@media screen and (min-width 975px)
+		font-size 3.7em
+
+	@media screen and (min-width 1300px)
+		font-size 4.7em
+
+	@media screen and (min-width 1550px)
+		font-size 5.7em
+
+.homepage-hero__rotating-text
+	position relative
+
+	height 2.5em
+
+.homepage-hero__rt-item
+	display block
+	position absolute
+	left 0
+	right 0
+	top 0
+	bottom 0
+
+	text-align center
+	letter-spacing 0.25em
+	text-transform uppercase
+
+	span
+		display inline-block
+
+		transform translateY(125px)
+
+		opacity 0
+
+		transition 0.4s
+
+.homepage-hero__rt-item--visible
+	span
+		transform translateY(0)
+
+		opacity 1
+
+.hero--homepage
+	.hero__cta-button
+	.hero__cta-subtext
+		transform translateY(50px)
+		opacity 0
+
+.latest-content
+	margin-top 200px
+
+	background $gradient--grey
+
+.latest-content__headline
+	position relative
+	top -0.7em
+
+	margin-bottom 0
+
+	text-align center
+
+.latest-content__button-container
+	text-align center

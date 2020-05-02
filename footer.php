@@ -1,43 +1,26 @@
-<?php
+<?php // phpcs:ignore
 /**
- * The template for displaying the footer.
+ * The Footer class, to manager the website footer data & template.
  *
- * Contains the closing of the #content div and all content after
- *
- * @package starter-theme
+ * @package wp-starter
+ * @author Heather
+ * @version 1.0
+ * @since 1.0
  */
 
-?>
+/**
+ * Setup the Footer class
+ */
+class Footer extends Core_Template {
+	/**
+	 * Override the base template function to load a specific twig file.
+	 *
+	 * @return string
+	 */
+	public function template_file() {
+		return 'views/partials/footer.twig';
+	}
 
-</div>
+}
 
-<footer class="footer" role="contentinfo">
-
-	<?php get_template_part( 'templates/footer/footer', 'widgets' ); ?>
-
-	<?php if ( has_nav_menu( 'social' ) ) : ?>
-		<nav class="footer__social" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'twentyseventeen' ); ?>">
-			<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'social',
-						'menu_class'     => 'social-links-menu',
-						'depth'          => 1,
-						'link_before'    => '<span class="screen-reader-text">',
-						'link_after'     => '</span>',
-					)
-				);
-			?>
-		</nav><!-- .social-navigation -->
-	<?php endif; ?>
-
-	<?php get_template_part( 'templates/footer/footer', 'site-info' ); ?>
-
-</footer>
-
-<?php wp_footer(); ?>
-
-<?php get_template_part( 'templates/footer/footer', 'scripts' ); ?>
-
-</body>
-</html>
+new Footer();

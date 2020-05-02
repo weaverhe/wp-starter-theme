@@ -1,27 +1,18 @@
 footer
-	padding $spacing--m 0 0
+	padding 100px 0 40px
 
-	color $white
+.footer__copyright
+	margin-top 100px
+	margin-bottom 0
 
-	background-color $color--text
+	@media screen and (min-width 550px)
+		margin-top 250px
 
-.footer__widgets
-	align-items center
-	display flex
-	justify-content space-between
-
-.footer__info
-	margin-top $spacing--s
-	padding $spacing--xs 0
-
-	background-color lighten( $color--text, 10% )
-
-.footer__info-content
-	margin 0 auto
-
-	font-size 0.8em
+.footer__copyright
+.footer__privacy
 	text-align center
+	font-size $font--small
 
+.footer__privacy
 	a
-		color $white
-		text-decoration none
+		color $color--text

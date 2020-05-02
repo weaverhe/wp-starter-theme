@@ -1,5 +1,1 @@
-# Heather's WordPress Starter Theme - Work in Progress
-
-I found myself laying the same foundation every time I began a new WordPress project, or starting any type of development project, and realized I could remedy this by creating my own starter theme that I use from project to project. It's not intended to be used by many others, but it's available for your use and complete modification. I've borrowed heavily from a few resources, which I'll credit below.
-
-*Underscores* - I'm certainly not an expert WordPress developer, and this theme for me is more about getting my SASS set up, and adding the common scripts I find myself reusing time and time again, as well as making some front-end template adjustments. To save myself a ton of time, I started my development with the theme from [Underscores.me](http://underscores.me/)
+# WP Starter Theme

@@ -1,0 +1,52 @@
+.form__field-group
+	position relative
+
+	margin-top 50px
+
+	&:first-child
+		margin-top 0
+
+.form__input
+	padding-bottom 10px
+
+	border 0
+	border-bottom 2px solid $color--text
+	border-radius 0
+
+	background-color transparent
+
+	&:focus
+		border-bottom 2px solid $cta-main
+
+		outline 0
+
+.form__label
+	position absolute
+	bottom 12px
+	left 0
+
+	transition 0.15s
+	transition-timing-function ease-in
+
+.form__input:focus ~ .form__label
+.form__input--filled .form__label
+		transform translateY(-30px) scale(0.75)
+		transform-origin bottom left
+
+.form__message
+	clear both
+
+	p
+		margin-top 5px
+		margin-bottom 0
+
+		font-weight bold
+
+	&.form__message--error
+		font-size $font--small
+
+.form__inline-checkbox
+	margin-top 20px
+
+	label
+		font-size 0.75em

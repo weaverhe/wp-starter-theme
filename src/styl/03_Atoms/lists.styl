@@ -1,25 +1,70 @@
 ol
 ul
-	padding-left $spacing--s
+	padding-left 1.5em
 
 	li
-		margin-bottom $spacing--xs
+		margin-bottom 5px
 
 	ol
 	ul
-		margin $spacing--s 0
+		margin 10px 0
 
 
 .list--unstyled
-	padding-left 0
-
 	list-style-type none
+	padding-left 0
 
 .list--inline
 	li
 		display inline-block
-
-		margin-right $spacing--s
+		margin-right 10px
 
 		&:last-child
 			margin-right 0
+	
+
+
+.list--icon
+	margin-right 15px
+
+	a
+		color $color--text
+		background-color $white
+		width 30px
+		text-align center
+		padding 5px
+		line-height 1
+		display block
+		transition background-color 0.2s ease-in-out, color 0.2s ease-in-out
+
+
+.list__icon.list__icon--facebook
+	a:hover
+	a:active
+	a:focus
+		background-color $color--facebook
+		color $white
+
+
+.list__icon.list__icon--linkedin
+	a:hover
+	a:active
+	a:focus
+		background-color $color--linkedin
+		color $white
+
+
+.list__icon.list__icon--twitter
+	a:hover
+	a:active
+	a:focus
+		background-color $color--twitter
+		color $white
+
+
+.list__icon.list__icon--yelp
+	a:hover
+	a:active
+	a:focus
+		background-color $color--yelp
+		color $white

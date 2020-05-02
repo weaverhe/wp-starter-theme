@@ -1,31 +1,26 @@
-<?php
+<?php // phpcs:ignore
 /**
- * The header for our theme.
+ * The Header class, to manager the website header data & template.
  *
- * Displays all of the <head> section and  site navigation
- *
- * @package starter-theme
+ * @package wp-starter
+ * @author Heather
+ * @version 1.0
+ * @since 1.0
  */
 
-?>
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+/**
+ * Setup the Header class
+ */
+class Header extends Core_Template {
+	/**
+	 * Override the base template function to load a specific twig file.
+	 *
+	 * @return string
+	 */
+	public function template_file() {
+		return 'views/partials/header.twig';
+	}
 
+}
 
-	<?php wp_head(); ?>
-
-	<?php get_template_part( 'templates/header/header', 'scripts' ); ?>
-
-</head>
-
-<body <?php body_class(); ?>>
-	<a class="skip-link screen-reader-text" href="#content">Skip to Content</a>
-
-	<?php get_template_part( 'templates/navigation/navigation', 'top' ); ?>
-
-	<div id="content">
+new Header();

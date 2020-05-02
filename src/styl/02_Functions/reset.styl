@@ -3,15 +3,12 @@ html
 *
 *:before
 *:after
-	vertical-align baseline
-
 	box-sizing inherit
 	margin 0
 	padding 0
-
-	font inherit
-
 	border 0
+	font inherit
+	vertical-align baseline
 	
 sup
 	vertical-align text-top
@@ -20,21 +17,23 @@ sub
 	vertical-align text-bottom
 	
 body
-	padding-top $nav-height
-
-	color $color--text
-	font-size 1.75vmax
-	font-family $roboto
+	
 	line-height 1
+	font-size 16px
+	font-family $inconsolata
+	color $color--text
 
-	@media screen and (min-width $breakpoint--laptop)
-		font-size 1.25vmax
+	@media screen and (min-width 601px)
+		font-size 18px
 
-	@media screen and (min-width $breakpoint--monitor)
-		font-size 1vmax
-
-	&.admin-bar
-		padding-top 'calc(32px + %s)' % $nav-height
+	@media screen and (min-width 800px)
+		padding-left 60px
+		
+	@media screen and (min-width 901px)
+		font-size 20px
+		
+	@media screen and (min-width 1201px)
+		font-size 21px
 	
 blockquote
 q

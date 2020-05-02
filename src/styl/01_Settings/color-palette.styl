@@ -1,19 +1,43 @@
-// colors
-$purple = #503B5C
+$purple = #7020D8
+$purple--bg = rgba($purple, 60%)
+$blue = #5496CC
+$teal = #4DB4C9
+$green = #3FEFC3
 
-// neutrals
-$white = #FFFFFF
-$grey--light = #efefef
-$grey = #aaa
-$grey--dark = #565656
 $black = #323232
+$grey = #9B9B9B
+$grey--light = #DDD
+$grey--lighter = #EEE
+$white = #FFFFFF
 
-// style definitions
 $color--text = $black
-$color--neutral = $grey--light
-$color--border = $grey--dark
+$color--neutral = $grey--lighter
 
-// cta
-$cta-main--light = lighten($purple, 20%)
+$cta-main--light = $purple--bg
 $cta-main = $purple
 $cta-main--dark = darken($purple, 20%)
+
+$cta-secondary--light = lighten($teal, 10%)
+$cta-secondary = $teal
+$cta-secondary--dark = darken($teal, 10%)
+
+$gradient--grey = linear-gradient(125deg, #EEE, #DDD)
+$gradient--purple = linear-gradient(125deg, $purple, $green)
+
+$social--twitter = #1da1f2
+$social--linkedin = #0077b5
+$social--facebook = #3b5998
+$social--reddit = #ff4500
+$social--pinterest = #bd081c
+$social--email = #6a737b
+
+$code--white = #f8f8f2
+$code--green = #a6e22e
+$code--purple = #ae81ff
+$code--pink = #f92672
+$code--yellow = #e6db74
+$code--orange = #fd971f
+$code--black = #272822
+$code--blue = #66d9ef
+$code--grey = #999
+$code--lightgrey = #bbb

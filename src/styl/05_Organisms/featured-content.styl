@@ -1,0 +1,201 @@
+.featured-content__container
+	@media screen and (min-width 1000px)
+		display grid
+		grid-template-columns repeat(2, 1fr)
+		grid-column-gap 30px
+		grid-row-gap 80px
+
+		padding-bottom 80px
+
+.featured-content
+	margin-bottom 40px
+
+	@media screen and (min-width 600px) and (max-width 999px)
+		margin-bottom 80px
+
+	@media screen and (min-width 1000px)
+		margin-bottom 0
+
+	> a
+		text-decoration none
+		color $color--text
+
+.featured-content__image
+	position relative
+
+.featured-content__icon
+	position absolute
+	top 0
+	left 0
+
+	width 50px
+	height auto
+
+	@media screen and (min-width 550px)
+		width initial
+
+	@media screen and (min-width 1000px) and (max-width 1300px)
+		width 50px
+
+.featured-content__image-wrapper
+	position relative
+
+	padding-bottom 52.5%
+
+	.featured-content__image
+		display flex
+		align-items center
+		justify-content center
+
+		position absolute
+		top 0
+		bottom 0
+		left 0
+		right 0
+
+.featured-content__cover-image
+	max-height 95%
+	width auto
+
+	box-shadow 0 2px 14px 0 rgba(36, 36, 36, 0.35)
+
+.featured-content__title-container
+	position relative
+	z-index 10
+
+	padding 0 10px
+
+	@media screen and (min-width 550px)
+		padding 0 30px
+
+.featured-content__title
+	margin-top -0.6em
+	margin-bottom 0
+
+	line-height 1.175
+
+	transform translateX(0)
+	opacity 1
+
+	transition 0.1s
+
+// hover content
+.featured-content__hover
+	position absolute
+	top 0
+	bottom 0
+	left 0
+	right 0
+
+	display flex
+	flex-direction column
+
+	padding 70px 15px 20px
+
+	background-color $purple
+
+	@media screen and (max-width 550px)
+		display none
+
+	@media screen and (min-width 1000px) and (max-width 1300px)
+		padding-top 50px
+
+	@media screen and (min-width 1700px)
+		padding 70px 30px 35px
+
+.featured-content__hover-title
+.featured-content__hover-description
+	color $white
+
+.featured-content__hover-title
+	@media screen and (min-width 1000px) and (max-width 1300px)
+		margin-bottom 5px
+
+		font-size 1em
+
+	@media screen and (min-width 700px) and (max-width 999px), screen and (min-width 1700px)
+		font-size 1.9em
+
+.featured-content__hover-description
+	margin-bottom 5px
+
+	font-size 0.9em
+
+	@media screen and (min-width 700px) and (max-width 999px), screen and (min-width 1700px)
+		font-size 1.2em
+
+.featured-content__hover-cta
+	display inline
+	justify-self flex-end
+	align-self flex-start
+	position relative
+
+	margin-bottom 0
+	margin-top auto
+
+	color $white
+	font-size 0.9em
+
+	&:before
+		content ''
+		position absolute
+		top 60%
+		bottom -5px
+		left -5px
+		right -5px
+		z-index -1
+
+		background-color rgba($teal, 0.8)
+
+	i
+		position relative
+		top -2px
+
+		&.fa-external-link
+			top 1px
+
+			font-size 0.8em
+
+	@media screen and (min-width 700px) and (max-width 999px), screen and (min-width 1700px)
+		font-size 1.2em
+
+// hover animation/display
+@media screen and (min-width 400px)
+	.featured-content__hover
+		transform scale(0, 1)
+		transform-origin left
+
+		transition 0.2s
+
+	.featured-content__hover-title
+	.featured-content__hover-description
+	.featured-content__hover-cta
+		opacity 0
+		transform translateY(100px)
+
+	.featured-content__hover-title
+		transition 0.3s 0.2s
+
+	.featured-content__hover-description
+		transition 0.5s 0.2s
+
+	.featured-content__hover-cta
+		transition 0.7s 0.2s
+
+	.featured-content > a
+		&:hover
+		&:active
+		&:focus
+
+			.featured-content__title
+				opacity 0
+				transform translateX(-100px)
+
+			.featured-content__hover
+				transform scale(1)
+
+			.featured-content__hover-title
+			.featured-content__hover-description
+			.featured-content__hover-cta
+				opacity 1
+				transform translateY(0)

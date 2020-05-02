@@ -10,44 +10,51 @@ h6
 .h4
 .h5
 .h6
-	font-weight 700
+	font-weight 900
+	font-family $work-sans
 
 h1
 .h1
+	font-size 5.7em // 120 px
+	line-height 1.18em
 	margin 0.5em 0 0.15em
 
-	font-size 4vmax
-	line-height 1.25em
-		
+	@media screen and (max-width 500px)
+		font-size 4.56em
+	
+	
 h2
 .h2
+	font-size 2.86em // 60px
+	line-height 1.18em
 	margin 0.5em 0 0.15em
 
-	font-size 3.25vmax
-	line-height 1.15384615em
-			
+	@media screen and (max-width 500px)
+		font-size 2.28em
+
+				
 h3
 .h3
+	font-size 1.9em // 40px
+	line-height 1.3636364em
 	margin 0.5em 0 0.15em
 
-	font-size 2.75vmax
-	line-height 1.3636364em
+	@media screen and (max-width 500px)
+		font-size 1.52em
 	
 h4
 .h4
-	margin 0.75em 0 0.25em
-
-	font-size 2.25vmax
+	font-size 1.333em // 28px
 	line-height 1.111111em
+	margin 0.75em 0 0.25em
+	letter-spacing 1px
 
+	@media screen and (max-width 500px)
+		font-size 1.064em
+	
 h5
 .h5
-	margin 1em 0 0.5em
-
-	font-size 1.8vmax
-
 h6
 .h6
+	font-size 1em // 21px
 	margin 1em 0 0.5em
-
-	font-size 1.5vmax
