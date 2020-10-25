@@ -2,10 +2,10 @@
 /**
  * Handle ACF Functionality for templates
  *
- * @package wp-starter
- * @author Heather Weaver
+ * @package StarterTheme
+ * @author  Heather Weaver
  * @version 1.0
- * @since 1.0
+ * @since   1.0
  */
 
 /**
@@ -90,8 +90,8 @@ class Core_ACF {
 				$layout_key = 'core_layout_' . $args['key'] . '_' . Core_Helpers::sanitize_title_underscore( $layout[0] );
 
 				// Set layout args.
-				$layouts[ $layout_key ] = $layout[1];
-				$layouts[ $layout_key ]['name'] = Core_Helpers::sanitize_title_underscore( $layout[0] );
+				$layouts[ $layout_key ]          = $layout[1];
+				$layouts[ $layout_key ]['name']  = Core_Helpers::sanitize_title_underscore( $layout[0] );
 				$layouts[ $layout_key ]['label'] = $layout[0];
 
 				// Create the sub fields for the layout.
@@ -99,7 +99,7 @@ class Core_ACF {
 					$layout_fields = array();
 
 					foreach ( $layout[1]['sub_fields'] as $field ) {
-						$field_key = $layout_key;
+						$field_key       = $layout_key;
 						$layout_fields[] = self::setup_field( $field[0], $field[1], $field[2], $field_key, 'flexible_content' );
 					}
 
@@ -113,7 +113,7 @@ class Core_ACF {
 		// Need to modify the keys to add the repeater key to the field key doesn't end up duplicated elsewhere.
 		if ( 'repeater' === $type && array_key_exists( 'sub_fields', $args ) ) {
 			foreach ( $args['sub_fields'] as $key => $sub_field ) {
-				$new_key = 'core_repeater_field_' . $args['key'];
+				$new_key                    = 'core_repeater_field_' . $args['key'];
 				$args['sub_fields'][ $key ] = self::setup_field( $sub_field[0], $sub_field[1], $sub_field[2], $new_key, 'repeater' );
 			}
 		}
@@ -166,7 +166,7 @@ class Core_ACF {
 	 * @param array $location_is the location data.
 	 * @return array
 	 */
-	function get_location_data( $location_is = [] ) {
+	public function get_location_data( $location_is = [] ) {
 		if ( ! is_array( $location_is ) ) {
 			return;
 		}
